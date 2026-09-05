@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+
+@theme {
+  --color-ufs-blue: #0A2463; /* Deep Blue */
+  --color-ufs-orange: #FF5A00; /* Deep Orange */
+}
