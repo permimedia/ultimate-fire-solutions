@@ -6,7 +6,6 @@ import previdiaCompactPanel from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Pr
 import previdiaCompactIndocBoxClg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/INDOCBOXCLG.png';
 import previdiaCompactIndocBoxCsg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/INDOCBOXCSG.png';
 import previdiaCompactStudio from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/Previdia Compact the compact, powerful, EN54-certified fire control panel.png';
-import previdia216 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/Previdia216.png';
 import previdia216R from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/Previdia216R.png';
 import previdia216Cpu from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/FPMCPU-L.png';
 import previdia216LedPrn from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/FPMLEDPRN-L.png';
@@ -98,35 +97,7 @@ export const fireDetectionProducts: Product[] = [
 			{ name: 'Previdia Studio', image: previdiaCompactStudio, description: 'Configuration and monitoring interface for streamlined commissioning and service workflows.' }
 		]
 	},
-	{
-		slug: 'previdia-216-control-panel',
-		name: 'Previdia 216 Control Panel',
-		series: 'Previdia Series',
-		subtitle: 'A high-capacity panel for advanced multi-zone system configuration.',
-		shortDescription: 'A powerful, addressable 216-zone platform designed for larger and more complex protection systems.',
-		longDescription:
-			'The Previdia 216 provides substantial scalability for multi-zone alarm networks, making it a trusted solution for larger sites that demand highly organized detection architecture and flexible field module integration.',
-		category: 'Fire Detection Systems',
-		image: previdia216,
-		gallery: [previdia216, previdia216R, previdia216Cpu, previdia216LedPrn, previdia216FpmExt],
-		tags: ['216 Zones', 'Scalable', 'Addressable', 'High Capacity'],
-		features: [
-			'Expandable zone architecture for large and complex system layouts.',
-			'High-performance local processing for fast detection and event response.',
-			'Flexible integration with networked detection and signaling modules.',
-			'Optimized for campus, commercial, and mission-critical sites.'
-		],
-		standards: [
-			{ title: 'NFPA 72', description: 'Built to align with modern code requirements for system activation, annunciation, and supervision.' },
-			{ title: 'IEC / EN Standards', description: 'Designed to meet the reliability and safety expectations of professional building fire systems.' },
-			{ title: 'System Integrity', description: 'Advanced supervision supports rapid diagnostics and resilient alarm-state management.' }
-		],
-		accessories: [
-			{ name: 'FPMCPU-L', image: previdia216Cpu, description: 'Core processing unit for enhanced system control and diagnostics.' },
-			{ name: 'FPMLEDPRN-L', image: previdia216LedPrn, description: 'Operator display support module for a clear status and event interface.' },
-			{ name: 'FPMEXT-L', image: previdia216FpmExt, description: 'Expansion interface for field connectivity and modular system growth.' }
-		]
-	},
+	// Removed non-R Previdia 216 variant. Only Previdia 216R remains in catalog.
 	{
 		slug: 'previdia-216r-control-panel',
 		name: 'Previdia 216R Control Panel',
@@ -137,7 +108,7 @@ export const fireDetectionProducts: Product[] = [
 			'The Previdia 216R offers the same scalable performance envelope as the 216 platform while strengthening system resilience for mission-critical operations, critical infrastructure, and facilities requiring elevated system redundancy.',
 		category: 'Fire Detection Systems',
 		image: previdia216R,
-		gallery: [previdia216R, previdia216, previdia216Cpu, previdia216LedPrn],
+		gallery: [previdia216R, previdia216Cpu, previdia216LedPrn, previdia216FpmExt],
 		tags: ['216R', 'Redundant', 'Resilient', 'Critical Sites'],
 		features: [
 			'Enhanced availability across life-safety event handling and supervisory functions.',

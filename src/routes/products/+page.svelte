@@ -13,6 +13,12 @@
 			accent: 'from-slate-800 via-slate-700 to-ufs-blue'
 		},
 		{
+			name: 'Conventional Control Panels',
+			description: 'Modular conventional panel solutions for critical monitoring, control, and scalable life-safety coverage.',
+			href: '/products/fire-and-safety/conventional-control-panels',
+			accent: 'from-[#0A2463] via-blue-800 to-indigo-600'
+		},
+		{
 			name: 'Fire Suppression Systems',
 			description: 'Mechanical fire suppression, pump systems, sprinklers, and specialist protection technologies.',
 			href: '/products/fire-and-safety/fire-suppression-systems',

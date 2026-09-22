@@ -7,6 +7,12 @@
 			color: 'from-ufs-blue to-slate-700'
 		},
 		{
+			name: 'Conventional Control Panels',
+			description: 'Modular conventional fire control systems engineered for dependable monitoring, control, and site-wide safety.',
+			href: '/products/fire-and-safety/conventional-control-panels',
+			color: 'from-[#0A2463] to-blue-700'
+		},
+		{
 			name: 'Fire Suppression Systems',
 			description: 'Mechanical protection, sprinklers, pumps, and suppression hardware built for dependable coverage.',
 			href: '/products/fire-and-safety/fire-suppression-systems',

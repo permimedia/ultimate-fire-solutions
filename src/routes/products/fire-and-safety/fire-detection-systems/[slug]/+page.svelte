@@ -1,10 +1,62 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { fireDetectionProducts } from '$lib/data/fire-detection-products';
+	export let data: { product: import('$lib/data/fire-detection-products').Product };
+	const { product } = data;
 
-	const product = fireDetectionProducts.find((item) => item.slug === page.params.slug) ?? fireDetectionProducts[0];
+	// declare reactive state using SvelteKit's $state helper
+	// SvelteKit's compiled runtime exposes $state; in components use let and $: computed where needed
+	let activeImage: string = product?.image ?? '';
+
+	function selectImage(img: string) {
+		activeImage = img;
+		if (typeof window !== 'undefined' && window.scrollTo) window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
 </script>
 
+			<!-- Technical Applications & Specifications -->
+			<section class="py-24">
+				<div class="mx-auto max-w-7xl">
+					<h2 class="text-3xl font-black text-[#0A2463]">Technical Applications & Specifications</h2>
+					<p class="mt-3 max-w-2xl text-slate-600">Detailed compliance, capabilities, and application notes for system designers and specifiers.</p>
+
+					<div class="mt-10 grid gap-6 md:grid-cols-3">
+						<div class="rounded-2xl border border-slate-200 bg-white p-6">
+							<h3 class="text-lg font-bold text-[#0A2463]">Standards & Compliance</h3>
+							<ul class="mt-4 space-y-3 text-slate-700">
+								{#each product.standards as standard}
+									<li class="flex items-start gap-3">
+										<span class="mt-1 text-ufs-orange">●</span>
+										<div>
+											<p class="font-semibold text-slate-800">{standard.title}</p>
+											<p class="text-sm text-slate-600">{standard.description}</p>
+										</div>
+									</li>
+								{/each}
+							</ul>
+						</div>
+
+						<div class="rounded-2xl border border-slate-200 bg-white p-6">
+							<h3 class="text-lg font-bold text-[#0A2463]">System Capabilities</h3>
+							<ul class="mt-4 space-y-3 text-slate-700">
+								{#each product.features as feature}
+									<li class="flex items-start gap-3">
+										<span class="mt-1 text-ufs-orange">✔</span>
+										<p class="text-sm text-slate-700">{feature}</p>
+									</li>
+								{/each}
+							</ul>
+						</div>
+
+						<div class="rounded-2xl border border-slate-200 bg-white p-6">
+							<h3 class="text-lg font-bold text-[#0A2463]">Technical Notes</h3>
+							<div class="mt-4 space-y-3 text-slate-700">
+								<p class="text-sm">Recommended max loop length and topology will depend on field modules and cable types. Consult installation manual for detailed wiring diagrams.</p>
+								<p class="text-sm">Operating temperature range: -10°C to 55°C. Storage: -20°C to 70°C.</p>
+								<p class="text-sm">Power supply provisioning: ensure adequate battery backup and monitored power circuits for redundant deployments.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 <svelte:head>
 	<title>{product.name} | Ultimate Fire Solutions</title>
 </svelte:head>
@@ -18,12 +70,24 @@
 	</header>
 
 	<main class="mx-auto max-w-7xl px-4 py-8 md:px-8 lg:px-10">
-		<section class="grid min-h-[80vh] items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-			<div class="space-y-6">
+		{#if product}
+		<section class="min-h-[85vh] grid items-center gap-8 lg:grid-cols-12">
+			<div class="col-span-7 flex items-center justify-center">
+					<div class="relative w-full max-w-5xl">
+						<div class="absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-50 to-slate-200"></div>
+						<div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-[0_45px_100px_rgba(10,36,99,0.12)]">
+							<div class="flex h-[75vh] items-center justify-center">
+								<img src={activeImage} alt={product.name} class="h-full w-full max-w-5xl object-contain" />
+							</div>
+						</div>
+					</div>
+			</div>
+
+			<aside class="col-span-5 flex flex-col justify-center gap-6 px-4 lg:px-10">
 				<p class="text-sm font-semibold uppercase tracking-[0.28rem] text-ufs-orange">{product.series}</p>
 				<h1 class="text-4xl font-black tracking-tight text-ufs-blue md:text-5xl lg:text-6xl">{product.name}</h1>
-				<p class="max-w-xl text-lg leading-8 text-slate-600">{product.subtitle}</p>
-				<p class="max-w-xl text-base leading-7 text-slate-600">{product.longDescription}</p>
+				<p class="text-lg leading-8 text-slate-600">{product.subtitle}</p>
+				<p class="text-base leading-7 text-slate-600">{product.shortDescription}</p>
 
 				<div class="flex flex-wrap gap-3 pt-2">
 					{#each product.tags as tag}
@@ -31,11 +95,7 @@
 					{/each}
 				</div>
 
-				<div class="grid gap-4 pt-5 sm:grid-cols-3">
-					<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-						<p class="text-[10px] font-semibold uppercase tracking-[0.2rem] text-slate-500">Application</p>
-						<p class="mt-2 text-lg font-bold text-ufs-blue">Commercial</p>
-					</div>
+				<div class="grid gap-4 pt-5 sm:grid-cols-2">
 					<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
 						<p class="text-[10px] font-semibold uppercase tracking-[0.2rem] text-slate-500">Architecture</p>
 						<p class="mt-2 text-lg font-bold text-ufs-blue">Modular</p>
@@ -45,25 +105,29 @@
 						<p class="mt-2 text-lg font-bold text-ufs-blue">NFPA 72</p>
 					</div>
 				</div>
-			</div>
+			</aside>
 
-			<div class="relative">
-				<div class="absolute inset-0 -z-10 rounded-[2.5rem] bg-gradient-to-br from-ufs-orange/12 via-slate-50 to-ufs-blue/10 blur-2xl"></div>
-				<div class="overflow-hidden rounded-[2.5rem] border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 p-4 shadow-[0_35px_80px_rgba(10,36,99,0.10)] md:p-6">
-					<div class="flex min-h-[500px] items-center justify-center rounded-[2rem] bg-gradient-to-br from-slate-100 via-white to-slate-50 p-4">
-						<img src={product.image} alt={product.name} class="h-[420px] w-full max-w-[640px] object-contain drop-shadow-[0_35px_65px_rgba(15,23,42,0.18)]" />
-					</div>
-				</div>
-
-				<div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+			<!-- Reactive gallery row below the hero -->
+			<div class="col-span-12 mt-6">
+				<div class="flex gap-4 overflow-x-auto py-4 px-2">
 					{#each product.gallery as image, index}
-						<div class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-sm">
-							<img src={image} alt={`${product.name} detail ${index + 1}`} class="h-24 w-full rounded-xl object-contain bg-white" />
+						<div class="flex-shrink-0">
+							<button onclick={() => selectImage(image)} class="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-ufs-orange cursor-pointer">
+								<img src={image} alt={`${product.name} detail ${index + 1}`} class="h-24 w-40 rounded-xl object-contain bg-white" />
+							</button>
 						</div>
 					{/each}
 				</div>
 			</div>
 		</section>
+		{:else}
+		<section class="min-h-[50vh] flex items-center justify-center">
+			<div class="text-center">
+				<h2 class="text-2xl font-bold text-[#0A2463]">Product not found</h2>
+				<p class="mt-2 text-slate-600">The product you requested could not be found in our catalog.</p>
+			</div>
+		</section>
+		{/if}
 
 		<section class="mt-12 space-y-8">
 			<div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 md:p-8">
