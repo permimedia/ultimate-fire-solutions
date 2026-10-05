@@ -1,64 +1,29 @@
 <script lang="ts">
-	export let data: { product: import('$lib/data/fire-detection-products').Product };
-	const { product } = data;
+	// Svelte 5 (runes) compatible props + state
+	// acquire incoming props using the $props() rune
+	let { data } = $props();
+	const { product } = data as { product: import('$lib/data/fire-detection-products').Product };
 
-	// declare reactive state using SvelteKit's $state helper
-	// SvelteKit's compiled runtime exposes $state; in components use let and $: computed where needed
-	let activeImage: string = product?.image ?? '';
+	import { onMount } from 'svelte';
+
+	// make activeImage reactive with the $state() rune; initialize on client to avoid capture warning
+	let activeImage = $state('');
+
+	onMount(() => {
+		activeImage = product?.image ?? '';
+	});
 
 	function selectImage(img: string) {
 		activeImage = img;
 		if (typeof window !== 'undefined' && window.scrollTo) window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 </script>
-
-			<!-- Technical Applications & Specifications -->
-			<section class="py-24">
-				<div class="mx-auto max-w-7xl">
-					<h2 class="text-3xl font-black text-[#0A2463]">Technical Applications & Specifications</h2>
-					<p class="mt-3 max-w-2xl text-slate-600">Detailed compliance, capabilities, and application notes for system designers and specifiers.</p>
-
-					<div class="mt-10 grid gap-6 md:grid-cols-3">
-						<div class="rounded-2xl border border-slate-200 bg-white p-6">
-							<h3 class="text-lg font-bold text-[#0A2463]">Standards & Compliance</h3>
-							<ul class="mt-4 space-y-3 text-slate-700">
-								{#each product.standards as standard}
-									<li class="flex items-start gap-3">
-										<span class="mt-1 text-ufs-orange">●</span>
-										<div>
-											<p class="font-semibold text-slate-800">{standard.title}</p>
-											<p class="text-sm text-slate-600">{standard.description}</p>
-										</div>
-									</li>
-								{/each}
-							</ul>
-						</div>
-
-						<div class="rounded-2xl border border-slate-200 bg-white p-6">
-							<h3 class="text-lg font-bold text-[#0A2463]">System Capabilities</h3>
-							<ul class="mt-4 space-y-3 text-slate-700">
-								{#each product.features as feature}
-									<li class="flex items-start gap-3">
-										<span class="mt-1 text-ufs-orange">✔</span>
-										<p class="text-sm text-slate-700">{feature}</p>
-									</li>
-								{/each}
-							</ul>
-						</div>
-
-						<div class="rounded-2xl border border-slate-200 bg-white p-6">
-							<h3 class="text-lg font-bold text-[#0A2463]">Technical Notes</h3>
-							<div class="mt-4 space-y-3 text-slate-700">
-								<p class="text-sm">Recommended max loop length and topology will depend on field modules and cable types. Consult installation manual for detailed wiring diagrams.</p>
-								<p class="text-sm">Operating temperature range: -10°C to 55°C. Storage: -20°C to 70°C.</p>
-								<p class="text-sm">Power supply provisioning: ensure adequate battery backup and monitored power circuits for redundant deployments.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 <svelte:head>
-	<title>{product.name} | Ultimate Fire Solutions</title>
+	<title>{product.name} | Ultimate Fire Solutions Ltd | Leading Fire Alarm Supplier in Kenya</title>
+	<meta name="description" content={product.shortDescription} />
+	<meta property="og:title" content={`${product.name} | Ultimate Fire Solutions Ltd`} />
+	<meta property="og:description" content={product.shortDescription} />
+	<meta property="og:image" content={product.image} />
 </svelte:head>
 
 <div class="min-h-screen bg-white text-slate-900">
@@ -77,7 +42,7 @@
 						<div class="absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-50 to-slate-200"></div>
 						<div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-[0_45px_100px_rgba(10,36,99,0.12)]">
 							<div class="flex h-[75vh] items-center justify-center">
-								<img src={activeImage} alt={product.name} class="h-full w-full max-w-5xl object-contain" />
+									<img src={activeImage} alt={product.name} class="h-full w-full max-w-5xl max-w-full object-contain" />
 							</div>
 						</div>
 					</div>
@@ -88,6 +53,12 @@
 				<h1 class="text-4xl font-black tracking-tight text-ufs-blue md:text-5xl lg:text-6xl">{product.name}</h1>
 				<p class="text-lg leading-8 text-slate-600">{product.subtitle}</p>
 				<p class="text-base leading-7 text-slate-600">{product.shortDescription}</p>
+
+				<!-- Trust badges -->
+				<div class="flex items-center gap-3 pt-3">
+					<span class="inline-flex items-center gap-2 rounded-full bg-[#0A2463]/10 px-3 py-1 text-sm font-semibold text-[#0A2463]">UL Listed</span>
+					<span class="inline-flex items-center gap-2 rounded-full bg-[#FF5A00]/10 px-3 py-1 text-sm font-semibold text-[#FF5A00]">NFPA Standard Compliant</span>
+				</div>
 
 				<div class="flex flex-wrap gap-3 pt-2">
 					{#each product.tags as tag}

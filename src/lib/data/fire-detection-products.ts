@@ -157,3 +157,5 @@ export const fireDetectionProducts: Product[] = [
 		]
 	}
 ];
+
+// New product groups will be referenced from a central products data file
