@@ -9,24 +9,6 @@
 </script>
 
 <div class="min-h-screen bg-gradient-to-br from-white via-blue-50 to-orange-50 font-sans text-slate-900">
-	<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
-		<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
-			<div class="flex items-center gap-3">
-				<img src={ufsLogo} alt="Ultimate Fire Solutions Logo" class="h-12 w-auto md:h-14" />
-			</div>
-
-			<nav class="hidden items-center gap-8 text-sm font-semibold text-ufs-blue md:flex">
-				<a href="/" class="transition hover:text-ufs-orange">Home</a>
-				<a href="#about" class="transition hover:text-ufs-orange">About</a>
-				<a href="#products" class="transition hover:text-ufs-orange">Products</a>
-				<a href="#services" class="transition hover:text-ufs-orange">Services</a>
-				<a href="#contact" class="transition hover:text-ufs-orange">Contact Us</a>
-			</nav>
-
-			<a href="#contact" class="rounded-md bg-ufs-orange px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-orange-600">Get a Quote</a>
-		</div>
-	</header>
-
 	<main>
 		<section class="mx-auto max-w-[90rem] px-6 py-18 md:px-8 lg:px-10">
 			<div class="grid items-center gap-12 py-16 lg:grid-cols-12">

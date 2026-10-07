@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ShieldCheck, CheckCircle2 } from 'lucide-svelte';
   let { data } = $props();
-  const { product } = data;
+  let product = $derived(data.product);
 </script>
 
 <svelte:head>

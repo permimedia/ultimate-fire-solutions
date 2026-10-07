@@ -3,7 +3,7 @@
 	import ufsLogo from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/UFS LOGO.png';
 	import { categories } from '$lib/data/products';
 	
-	let { url } = $props();
+	let { url = '' } = $props();
 
 	let mobileOpen = $state(false);
 
@@ -21,7 +21,9 @@
 
 		<!-- Desktop nav -->
 		<div class="hidden lg:flex lg:items-center lg:gap-8">
-			<a href="/products" class="text-sm font-semibold text-slate-700 hover:text-ufs-blue">Products</a>
+			<a href="/" class="text-sm font-semibold text-slate-700 hover:text-ufs-blue">Home</a>
+			<a href="#about" class="text-sm font-semibold text-slate-700 hover:text-ufs-blue">About</a>
+			
 			<!-- Products dropdown -->
 			<div class="relative group">
 				<button aria-expanded="false" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-ufs-blue">
@@ -46,13 +48,18 @@
 						{/each}
 					</div>
 				</div>
-		</div>
+			</div>
+			
+			<a href="#services" class="text-sm font-semibold text-slate-700 hover:text-ufs-blue">Services</a>
+			<a href="/contact" class="text-sm font-semibold text-slate-700 hover:text-ufs-blue">Contact Us</a>
+			<a href="/contact" class="rounded-md bg-ufs-orange px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-orange-600">Get a Quote</a>
+		</div> <!-- [ADDED FIX]: This correctly closes the Desktop nav container -->
 
 		<!-- Mobile hamburger -->
-			<div class="flex items-center gap-3 lg:hidden">
-				<button aria-label="menu" onclick={toggleMobile} class="rounded-md bg-slate-50 p-2">
+		<div class="flex items-center gap-3 lg:hidden">
+			<button aria-label="menu" onclick={toggleMobile} class="rounded-md bg-slate-50 p-2">
 				<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-				</button>
+			</button>
 		</div>
 	</div>
 
@@ -61,6 +68,9 @@
 		<div class={`mx-auto max-w-7xl px-4 ${mobileOpen ? 'block' : 'hidden'}`}>
 			<nav class="space-y-2 py-4">
 				<div class="border-t border-slate-100 pt-4">
+					<a href="/" class="block py-2 text-sm font-semibold text-slate-700 hover:text-ufs-blue">Home</a>
+					<a href="#about" class="block py-2 text-sm font-semibold text-slate-700 hover:text-ufs-blue">About</a>
+					
 					<button class="w-full text-left flex items-center justify-between px-2 py-3 font-semibold text-slate-700" onclick={() => mobileOpen = !mobileOpen}>
 						<span>Products</span>
 						<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
@@ -75,6 +85,10 @@
 							</div>
 						{/each}
 					</div>
+					
+					<a href="/services" class="block py-2 text-sm font-semibold text-slate-700 hover:text-ufs-blue">Services</a>
+<a href="/contact" class="block py-2 text-sm font-semibold text-slate-700 hover:text-ufs-blue">Contact Us</a>
+<a href="/contact" class="block mt-4 rounded-md bg-ufs-orange px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-orange-600 text-center">Get a Quote</a>
 				</div>
 			</nav>
 		</div>

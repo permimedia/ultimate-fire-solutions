@@ -7,12 +7,36 @@ export interface Product {
   description: string;
   features: string[];
   certifications: string[];
+  // Rich content fields (merged from legacy)
+  series?: string;
+  subtitle?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  gallery?: string[];
+  tags?: string[];
+  standards?: { title: string; description: string }[];
+  accessories?: { name: string; image: string; description: string }[];
 }
 
 import previdia216 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/Previdia216R.png';
+import previdia216Cpu from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/FPMCPU-L.png';
+import previdia216LedPrn from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/FPMLEDPRN-L.png';
+import previdia216FpmExt from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia 216, and  216R and its accessories/FPMEXT-L.png';
 import previdiaMicro from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Micro Control Panel and its accessories/Previdia Micro Control Panel.png';
+import previdiaMicroExp from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Micro Control Panel and its accessories/M-EXP Module.png';
+import previdiaMicroLan from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Micro Control Panel and its accessories/Previdia C-COM LAN module.png';
+import previdiaMicroDial from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Micro Control Panel and its accessories/Previdia C-DIAL 4G Module.png';
+import previdiaUltra216R from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Ultra Series/Previdia-Ultra216R.png';
+import previdiaUltraVoxR from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Ultra Series/Previdia-UltraVoxR.png';
+import previdiaVoxR from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Ultra Series/Previdia-VoxR.png';
+import previdiaUltraAmp from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Ultra Series/IFAMAMP 250 W Audio amplifier module.png';
+import previdiaUltraAudio from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Ultra Series/IFAMEVAC Audio matrix module.png';
+
 import hp320 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Emergency Lighting/HP320 Emergency Exit Luminaire.png';
 import previdiaCompact from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/Previdia Compact Control Panel.png';
+import previdiaCompactIndocBoxClg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/INDOCBOXCLG.png';
+import previdiaCompactIndocBoxCsg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/INDOCBOXCSG.png';
+import previdiaCompactStudio from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Compact Control Panel and its accessories/Previdia Compact the compact, powerful, EN54-certified fire control panel.png';
 import ed100 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Analogue Devices/Enea Series Detectors/ED100.png';
 import ed200 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Analogue Devices/Enea Series Detectors/ED200.png';
 import ed300 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Analogue Devices/Enea Series Detectors/ED300.png';
@@ -24,6 +48,16 @@ import apolloImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable D
 import argusImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Argus Series Detectors/Argus Series Devices.png';
 import es2000 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Addressable Signalling Devices/ES2000.png';
 import smartlineImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Smartline/SmartLine036-4.webp';
+
+import packagedFireFightingSystem from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Fire Pumps/Packaged Fire Fighting System.png';
+import endSuctionPump from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Fire Pumps/End Suction.png';
+import splitCasePump from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Fire Pumps/Split Case.png';
+import containerizedFirePump from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Fire Pumps/Containerized Fire Pump (2).png';
+import fm200Industrial from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM 200 - Industrial installation.png';
+import fm200System2 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM 200 fire suppression system 2.png';
+import fm200System from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM 200 Fire suppression system.png';
+import fm200HangingExtinguisher from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM200 10KG Automatic Hanging Fire Extingusher.png';
+import localFm200 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/Local 6 kgs automatic fm 200.png';
 
 import addrSignallingImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Addressable Signalling Devices/Addressable Signalling Devices.png';
 import apolloModulesImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Apollo Series Detectors/Addressable modules and interfaces for fire detection systems.webp';
@@ -76,8 +110,10 @@ export const categories = [
     id: 'addressable-fire-alarm-systems',
     name: 'Addressable Fire Alarm Systems',
     description: 'Advanced intelligent analogue addressable fire detection systems built for scalability and precise location reporting.',
+    route: '/products/fire-and-safety/fire-detection-systems',
     subcategories: [
       { id: 'control-panels', name: 'Control Panels' },
+      { id: 'addressable-devices', name: 'Addressable Devices' },
       { id: 'enea-series-detectors', name: 'Enea Series Detectors' },
       { id: 'apollo-series-detectors', name: 'Apollo Series Detectors' },
       { id: 'argus-series-detectors', name: 'Argus Series Detectors' },
@@ -89,13 +125,14 @@ export const categories = [
   {
     id: 'conventional-fire-alarm-systems',
     name: 'Conventional Fire Alarm Systems',
-    description: 'Robust, compliant conventional fire panels and zone detectors ideal for small-to-medium facilities.',
+    description: 'Robust, compliant conventional fire panels, detectors, call points, and beacons ideal for commercial buildings.',
+    route: '/products/fire-and-safety/conventional-control-panels',
     subcategories: [
       { id: 'conventional-control-panels', name: 'Conventional Control Panels' },
       { id: 'iris-series-detectors', name: 'Iris Series Detectors' },
-      { id: 'apollo-series-conventional-detectors', name: 'Apollo Series Conventional Detectors' },
       { id: 'manual-call-points-iris-series', name: 'Manual Call Points – Iris Series' },
-      { id: 'conventional-signalling-devices', name: 'Conventional Signalling Devices' }
+      { id: 'conventional-signalling-devices', name: 'Conventional Signalling Devices' },
+      { id: 'apollo-series-conventional-detectors', name: 'Apollo Series Conventional Detectors' }
     ]
   },
   {
@@ -103,8 +140,23 @@ export const categories = [
     name: 'Extinguishing Systems',
     description: 'Gaseous fire suppression and control panels engineered to NFPA standards for critical assets.',
     subcategories: [
+      { id: 'fm200-systems', name: 'FM 200 Fire Suppression System' },
+      { id: 'local-6kg-fm200', name: 'Local 6kg FM200 System' },
+      { id: 'industrial-installations', name: 'FM200 Industrial Installation' },
+      { id: 'fire-extinguishers', name: 'Fire Extinguishers' },
       { id: 'extinguishing-control-panels', name: 'Extinguishing Control Panels' },
       { id: 'suppression-modules', name: 'Suppression Modules & Valves' }
+    ]
+  },
+  {
+    id: 'fire-pumps',
+    name: 'Fire Pumps',
+    description: 'Reliable pump packages for elevated-pressure fire protection systems.',
+    subcategories: [
+      { id: 'containerized-fire-pump', name: 'Containerized Fire Pump' },
+      { id: 'packaged-system', name: 'Packaged Fire Fighting System' },
+      { id: 'end-suction-pump', name: 'End Suction Fire Pump' },
+      { id: 'split-case-pump', name: 'Split Case Fire Pump' }
     ]
   },
   {
@@ -125,9 +177,30 @@ export const products: Product[] = [
     category: 'addressable-fire-alarm-systems',
     subCategory: 'control-panels',
     image: previdia216,
-    description: 'Modular addressable fire detection control panel supporting up to 16 loops and network redundancy.',
-    features: ['Up to 16 addressable loops', '4.3-inch graphic touch screen display', 'Redundant processing architecture', 'EN54-2 and EN54-4 certified'],
-    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+    description: 'A resilient 216R variant purpose-built for enhanced availability and high-demand alarm environments.',
+    features: [
+      'Enhanced availability across life-safety event handling and supervisory functions.',
+      'Scalable architecture suitable for high-stakes commercial and industrial environments.',
+      'Durable field modularity for long-term serviceability and upgrade paths.',
+      'Designed to support advanced monitoring and alarm response patterns.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Previdia Series',
+    subtitle: 'Redundant, resilient, and engineered for demanding detection networks.',
+    shortDescription: 'A resilient 216R variant purpose-built for enhanced availability and high-demand alarm environments.',
+    longDescription: 'The Previdia 216R offers the same scalable performance envelope as the 216 platform while strengthening system resilience for mission-critical operations, critical infrastructure, and facilities requiring elevated system redundancy.',
+    gallery: [previdia216, previdia216Cpu, previdia216LedPrn, previdia216FpmExt],
+    tags: ['216R', 'Redundant', 'Resilient', 'Critical Sites'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant alarm, fault, and supervisory behavior across complex facilities.' },
+      { title: 'Mission-Critical Design', description: 'Engineered with resilience in mind for highly sensitive and high-occupancy environments.' },
+      { title: 'Serviceability', description: 'Modular architecture reduces replacement cycles and supports rapid maintenance for critical assets.' }
+    ],
+    accessories: [
+      { name: 'FPMCPU-L', image: previdia216Cpu, description: 'High-performance core controller for critical system reliability.' },
+      { name: 'FPMLEDPRN-L', image: previdia216LedPrn, description: 'Clear event display and printer interface for operational clarity.' },
+      { name: 'FPMEXT-L', image: previdia216FpmExt, description: 'Prepared expansion path for additional networks and detection zones.' }
+    ]
   },
   {
     id: 'previdia-micro-control-panel',
@@ -135,19 +208,92 @@ export const products: Product[] = [
     category: 'addressable-fire-alarm-systems',
     subCategory: 'control-panels',
     image: previdiaMicro,
-    description: 'Compact addressable control panel ideal for medium-sized installations with full networking capability.',
-    features: ['1 or 2 addressable loops', 'Color graphic screen', 'Built-in Ethernet port for remote monitoring'],
-    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+    description: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
+    features: [
+      'Compact footprint for limited-space installations and retrofit projects.',
+      'Expandable I/O and network architecture for multi-zone configurations.',
+      'Clear operator interface with user-friendly event management.',
+      'Optimized for distributed detection and programmable alarm logic.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Previdia Series',
+    subtitle: 'Compact, flexible, and ideal for small to medium risk applications.',
+    shortDescription: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
+    longDescription: 'The Previdia Micro Control Panel delivers exceptional installation flexibility with smart modular expandability, efficient alarm processing, and a simplified user interface for cost-conscious building protection.',
+    gallery: [previdiaMicro, previdiaMicroExp, previdiaMicroLan, previdiaMicroDial],
+    tags: ['Addressable', 'Modular', 'EN 54', 'SILENT'],
+    standards: [
+      { title: 'NFPA 72', description: 'Compliant with national fire alarm and signaling requirements for occupancy protection and system integrity.' },
+      { title: 'EN 54', description: 'Certified for European fire detection and control system performance and safety expectations.' },
+      { title: 'UL / CSA Ready', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: [
+      { name: 'M-EXP Module', image: previdiaMicroExp, description: 'Expandable module for extended input or output capability.' },
+      { name: 'C-COM LAN Module', image: previdiaMicroLan, description: 'High-speed communication module for local network connectivity.' },
+      { name: 'C-DIAL 4G Module', image: previdiaMicroDial, description: 'Cellular-ready communication pathway for resilient alarm transmission.' }
+    ]
   },
   {
     id: 'previdia-compact-control-panel',
     name: 'Previdia Compact Control Panel',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'conventional-control-panels',
+    category: 'addressable-fire-alarm-systems',
+    subCategory: 'control-panels',
     image: previdiaCompact,
-    description: 'Compact, powerful EN54-certified conventional control panel for smaller installations.',
-    features: ['Compact footprint', 'Easy commissioning', 'Expandable I/O'],
-    certifications: ['EN54']
+    description: 'A powerful yet compact addressable panel built for medium-sized fire protection systems.',
+    features: [
+      'High-density addressable logic with streamlined panel engineering.',
+      'Flexible enclosure options for installations requiring discreet or robust physical housing.',
+      'Scalable event management and resilient alarm communication routes.',
+      'Suitable for commercial and high-occupancy protection strategies.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Previdia Series',
+    subtitle: 'The compact, powerful, EN54-certified fire control panel.',
+    shortDescription: 'A powerful yet compact addressable panel built for medium-sized fire protection systems.',
+    longDescription: 'The Previdia Compact Control Panel combines a compact chassis, high-performance detection engine, and robust network capability, making it an excellent basis for efficient and resilient fire alarm systems.',
+    gallery: [previdiaCompact, previdiaCompactStudio, previdiaCompactIndocBoxClg, previdiaCompactIndocBoxCsg],
+    tags: ['Compact', 'EN54', 'Networkable', 'Robust'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant life-safety signaling and monitored detection events across commercial sites.' },
+      { title: 'EN 54', description: 'Compliant with the operational and reliability expectations of modern fire control systems.' },
+      { title: 'Code-Driven Design', description: 'Built for programmed alerting, zoning, and central management without sacrificing installation simplicity.' }
+    ],
+    accessories: [
+      { name: 'INDOCBOXCLG', image: previdiaCompactIndocBoxClg, description: 'Dedicated enclosure system for clean and secure installation layouts.' },
+      { name: 'INDOCBOXCSG', image: previdiaCompactIndocBoxCsg, description: 'Robust panel housing for resilient field protection and maintenance access.' },
+      { name: 'Previdia Studio', image: previdiaCompactStudio, description: 'Configuration and monitoring interface for streamlined commissioning and service workflows.' }
+    ]
+  },
+  {
+    id: 'previdia-ultra-control-panel',
+    name: 'Previdia Ultra Series',
+    category: 'addressable-fire-alarm-systems',
+    subCategory: 'control-panels',
+    image: previdiaUltra216R,
+    description: 'The Ultra series delivers premium alarm integration, audio management, and high-capacity system flexibility.',
+    features: [
+      'High-capacity control with advanced event routing and system prioritization.',
+      'Audio amplification and emergency communication integration capability.',
+      'Built for demanding commercial properties and multi-tenant systems.',
+      'Supports modern notifications and centralized management.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Previdia Ultra',
+    subtitle: 'Premium control architecture for high-end, voice-enabled fire protection ecosystems.',
+    shortDescription: 'The Ultra series delivers premium alarm integration, audio management, and high-capacity system flexibility.',
+    longDescription: 'The Previdia Ultra Series is purpose-built for advanced commercial and institutional environments where intelligent event management, speech capability, and scalable integration matter most.',
+    gallery: [previdiaUltra216R, previdiaUltraVoxR, previdiaVoxR, previdiaUltraAmp, previdiaUltraAudio],
+    tags: ['Ultra', 'Voice', 'Audio', 'Advanced'],
+    standards: [
+      { title: 'NFPA 72', description: 'Engineered to meet evolving notification, alarm, and emergency signal requirements.' },
+      { title: 'Voice Evacuation Readiness', description: 'Supports emergency audio distribution for orderly occupant movement and system communication.' },
+      { title: 'Commercial Protection', description: 'Optimized for premium, code-driven protection strategies in larger installations.' }
+    ],
+    accessories: [
+      { name: 'IFAMAMP 250 W', image: previdiaUltraAmp, description: 'Audio amplifier module delivering dependable emergency voice coverage.' },
+      { name: 'IFAMEVAC', image: previdiaUltraAudio, description: 'Audio matrix support for coordinated emergency messaging and distribution.' },
+      { name: 'Ultra VoxR', image: previdiaUltraVoxR, description: 'Premium control and voice-enabled platform for enhanced communication capability.' }
+    ]
   },
   {
     id: 'hp320-emergency-exit-luminaire',
@@ -158,8 +304,7 @@ export const products: Product[] = [
     description: 'High-performance LED emergency exit luminaire for directional evacuation signage.',
     features: ['High-efficiency LED array', '3-hour emergency battery backup', 'Wall and ceiling mounting options'],
     certifications: ['UL Listed', 'CE Marked']
-  }
-  ,
+  },
   {
     id: 'enea-ed100-detector',
     name: 'Enea ED100 Detector',
@@ -492,14 +637,19 @@ export const products: Product[] = [
     certifications: []
   },
   {
-    id: 'id300-detector',
-    name: 'ID300 Detector',
+    id: 'id100-detector',
+    name: 'ID100 Detector',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'iris-series-detectors',
-    image: id300Img,
-    description: 'ID300 conventional detector for general applications.',
-    features: ['Reliable detection'],
-    certifications: []
+    image: id100Img,
+    description: 'Entry-level optical smoke detector designed for small commercial premises, offices, and compact installation areas requiring dependable early warning.',
+    features: [
+      'Optical chamber technology for sensitive smoke detection',
+      'Low-profile aesthetic design for discreet installation',
+      'Stable operation for routine commercial environments',
+      'Suitable for UL Listed and NFPA compliant conventional systems'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
   },
   {
     id: 'id200-detector',
@@ -507,19 +657,29 @@ export const products: Product[] = [
     category: 'conventional-fire-alarm-systems',
     subCategory: 'iris-series-detectors',
     image: id200Img,
-    description: 'ID200 conventional detector.',
-    features: ['Compact form factor'],
-    certifications: []
+    description: 'Rate-of-rise heat detector engineered for environments where smoke detection may be affected by dust, steam, or other nuisance conditions.',
+    features: [
+      'Heat sensing for environments with elevated false-alarm risk',
+      'Robust housing for long service life',
+      'Consistent performance in industrial and utility spaces',
+      'Compliant with conventional alarm system standards'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
   },
   {
-    id: 'id100-detector',
-    name: 'ID100 Detector',
+    id: 'id300-detector',
+    name: 'ID300 Detector',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'iris-series-detectors',
-    image: id100Img,
-    description: 'Entry-level detector for small installations.',
-    features: ['Cost effective'],
-    certifications: []
+    image: id300Img,
+    description: 'High-performance conventional detector for general commercial applications, delivering dependable coverage and reliable alarm initiation across diverse layouts.',
+    features: [
+      'General-purpose detection for broad commercial coverage',
+      'Stable alarm threshold performance across varying environments',
+      'Compatible with conventional zone-based control architectures',
+      'Optimized for long-term service reliability'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
   },
   {
     id: 'is2021re-sounder',
@@ -610,8 +770,8 @@ export const products: Product[] = [
     description: 'Showcase of Iris series detectors.',
     features: ['Range overview'],
     certifications: []
-  }
-  ,
+  },
+
   {
     id: 'orbis-collection-2',
     name: 'Orbis Marine Fire Detection Collection',
@@ -641,6 +801,266 @@ export const products: Product[] = [
     description: 'Marine-certified conventional call points from Orbis series.',
     features: ['Marine rating', 'Robust housing'],
     certifications: []
+  },
+  {
+    id: 'iris-id100-optical-smoke-detector',
+    name: 'Iris ID100 Optical Smoke Detector',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'iris-series-detectors',
+    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Iris Series Detectors/ID 100.png',
+    description: 'High-precision conventional optical smoke detector equipped with advanced sensing chamber technology for rapid fire detection.',
+    features: [
+      'Dual LED indicator for 360° visibility',
+      'Dust containment technology to prevent false alarms',
+      'Compatible with SmartLine conventional control panels',
+      'EN54-7 certified'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+  },
+  {
+    id: 'iris-id200-heat-detector',
+    name: 'Iris ID200 Rate-of-Rise Heat Detector',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'iris-series-detectors',
+    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Iris Series Detectors/ID 200.png',
+    description: 'Conventional thermal detector designed for environments where smoke detectors are prone to false triggering.',
+    features: [
+      'Rate-of-rise and fixed temperature sensing options',
+      'Low ambient current consumption',
+      'Rugged polycarbonate housing',
+      'EN54-5 certified'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+  },
+  {
+    id: 'iris-manual-call-point-red',
+    name: 'Iris Series Conventional Manual Call Point',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'manual-call-points-iris-series',
+    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Manual Call Points – Iris Series/Iris Series Manual Call Points Collection.png',
+    description: 'Resettable conventional manual break-glass call point for immediate manual evacuation triggering.',
+    features: [
+      'Resettable operating element with key access',
+      'High-intensity LED alarm indicator',
+      'Surface and flush mounting options'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+  },
+  {
+    id: 'conventional-wall-sounder-beacon',
+    name: 'Conventional Sounder Beacon',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'conventional-signalling-devices',
+    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Conventional Signalling Devices/IS2021RE.png',
+    description: 'High-decibel audible and visual warning device for fast emergency notification across large facilities.',
+    features: [
+      'Multi-tone selectable alarm signals',
+      'Low current LED strobe light',
+      'Weatherproof IP65 enclosure options'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+  },
+  {
+    id: 'apollo-series-conventional-detector',
+    name: 'Apollo Series Conventional Optical Detector',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'apollo-series-conventional-detectors',
+    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Apollo Series Conventional Detectors/Orbis Marine Fire Detection Collection.png',
+    description: 'Reliable conventional smoke detector engineered for wide-area protection in commercial buildings.',
+    features: [
+      'Wide operating voltage range (9-33V DC)',
+      'Unaffected by wind or atmospheric pressure',
+      'Integrated alarm LED'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+  },
+  // Fire Suppression Systems - Clean Agent (FM200)
+  {
+    id: 'fm200-fire-suppression-system',
+    name: 'FM200 Fire Suppression System',
+    category: 'extinguishing-systems',
+    subCategory: 'fm200-systems',
+    image: fm200System,
+    description: 'A clean agent extinguishing system designed for high-value spaces, electronics, and protected asset environments.',
+    features: [
+      'Rapid extinguishing without damaging sensitive critical equipment or electronics.',
+      'Ideal for server rooms, electrical rooms, and high-value asset protection spaces.',
+      'Clean discharge profile supports non-destructive fire control for valuable environments.',
+      'Engineered for practical design and dependable fire event response.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 2001 Certified'],
+    series: 'Clean Agent Systems',
+    subtitle: 'Cleansing, efficient gaseous suppression for mission-critical rooms and equipment spaces.',
+    shortDescription: 'A clean agent extinguishing system designed for high-value spaces, electronics, and protected asset environments.',
+    longDescription: 'The FM200 clean agent suppression system is ideal for protecting rooms where water-based systems are impractical and rapid suppression is critical. It delivers fast occupant-safe extinguishing without the residual damage associated with conventional methods.',
+    gallery: [fm200System, fm200Industrial, fm200System2, fm200HangingExtinguisher, localFm200],
+    tags: ['Clean Agent', 'FM200', 'Sensitive Equipment', 'Fast Suppression'],
+    standards: [
+      { title: 'NFPA 2001', description: 'Designed around the operational and safety standard for clean agent fire extinguishing systems.' },
+      { title: 'Equipment Protection', description: 'A well-suited answer for protecting high-value rooms where water can be damaging or impractical.' },
+      { title: 'Code-Conscious Design', description: 'Supports modern suppression planning within regulated commercial and critical infrastructure projects.' }
+    ],
+    accessories: [
+      { name: 'FM200 Industrial Installation', image: fm200Industrial, description: 'Configuration for large-scale industrial and protected asset spaces.' },
+      { name: 'FM200 10KG Hanging Extinguisher', image: fm200HangingExtinguisher, description: 'Compact local agent option for targeted equipment rooms and enclosed hazard areas.' },
+      { name: 'Local 6kg FM200', image: localFm200, description: 'Flexible small-format suppression package for precise room-level protection.' }
+    ]
+  },
+  {
+    id: 'local-fm200-suppression',
+    name: 'Local 6kg FM200 System',
+    category: 'extinguishing-systems',
+    subCategory: 'local-6kg-fm200',
+    image: localFm200,
+    description: 'A compact, local FM200 arrangement designed to suppress hazards in small but high-value rooms.',
+    features: [
+      'Compact footprint suited to small electrical and mission-critical spaces.',
+      'Fast suppression for enclosed accommodation of sensitive equipment.',
+      'Designed for minimal operational disruption and reduced residual damage.',
+      'Ideal for selective installation in contained fire-prone areas.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 2001 Certified'],
+    series: 'Clean Agent Systems',
+    subtitle: 'Compact clean-agent protection for critical enclosed spaces.',
+    shortDescription: 'A compact, local FM200 arrangement designed to suppress hazards in small but high-value rooms.',
+    longDescription: 'For enclosed assets and smaller high-risk zones, the local 6kg FM200 system offers dependable suppression with minimal footprint and efficient placement flexibility.',
+    gallery: [localFm200, fm200HangingExtinguisher, fm200System, fm200System2],
+    tags: ['Local', 'Compact', 'FM200', 'High Value'],
+    standards: [
+      { title: 'NFPA 2001', description: 'Built to meet the key expectations for engineered clean-agent systems in protected spaces.' },
+      { title: 'Asset Protection', description: 'Supports the protection of critical electronic environments without water exposure risk.' },
+      { title: 'Operational Safety', description: 'Provides a focused suppression philosophy for discrete room protection strategies.' }
+    ],
+    accessories: [
+      { name: 'FM200 Industrial Installation', image: fm200Industrial, description: 'Broader system arrangement for more extensive protected areas.' },
+      { name: 'FM200 Fire Suppression System', image: fm200System, description: 'General clean-agent arrangement suitable for larger protected spaces.' },
+      { name: 'FM200 10KG Hanging Extinguisher', image: fm200HangingExtinguisher, description: 'A local, overhead-installed unit for rapid mission-critical coverage.' }
+    ]
+  },
+  // Fire Pumps
+  {
+    id: 'packaged-fire-fighting-system',
+    name: 'Packaged Fire Fighting System',
+    category: 'fire-pumps',
+    subCategory: 'packaged-system',
+    image: packagedFireFightingSystem,
+    description: 'A complete packaged pumping system designed to deliver dependable pressure and flow for robust system protection.',
+    features: [
+      'Integrated pump package for rapid setup and dependable operation.',
+      'Optimized system balancing and hydraulic continuity for measured discharge performance.',
+      'Compact configuration suited to building and facility protection strategies.',
+      'Engineered for operational resilience and simplified maintenance access.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 20 Certified'],
+    series: 'Fire Pump Systems',
+    subtitle: 'Turnkey water-based suppression package for rapid deployment and stable flow management.',
+    shortDescription: 'A complete packaged pumping system designed to deliver dependable pressure and flow for robust system protection.',
+    longDescription: 'The packaged fire fighting system brings together pump capacity, control, and operating logic in a carefully integrated configuration for reliable water delivery in commercial and industrial settings.',
+    gallery: [packagedFireFightingSystem, endSuctionPump, splitCasePump, containerizedFirePump],
+    tags: ['Turnkey', 'Water Supply', 'Industrial', 'Reliable'],
+    standards: [
+      { title: 'NFPA 20', description: 'Designed around the fire pump requirements and hydraulic performance expectations for reliable fire service water supply.' },
+      { title: 'System Reliability', description: 'Built to deliver robust pressure and discharge continuity during emergency demand.' },
+      { title: 'Field Serviceability', description: 'Modular package layout supports maintenance, inspection, and efficient upgrades.' }
+    ],
+    accessories: [
+      { name: 'End Suction Pump', image: endSuctionPump, description: 'Flexible pump solution for efficient pressure support across a wide range of applications.' },
+      { name: 'Split Case Pump', image: splitCasePump, description: 'High-capacity pumping arrangement designed for extended flow demand.' },
+      { name: 'Containerized Fire Pump', image: containerizedFirePump, description: 'Portable and robust enclosure system suitable for modular and temporary installation needs.' }
+    ]
+  },
+  {
+    id: 'end-suction-fire-pump',
+    name: 'End Suction Fire Pump',
+    category: 'fire-pumps',
+    subCategory: 'end-suction-pump',
+    image: endSuctionPump,
+    description: 'A dependable end suction configuration for reliable pressure and discharge performance in critical water-supply systems.',
+    features: [
+      'Compact pump geometry suited to practical installation in constrained plant and facility rooms.',
+      'Reliable hydraulic performance for emergency discharge and sustained pressure control.',
+      'Low-complexity mechanical configuration designed for easier maintenance planning.',
+      'Highly suitable for essential fire protection infrastructure in commercial and industrial settings.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 20 Certified'],
+    series: 'Fire Pump Systems',
+    subtitle: 'Efficient pumping solution for stable and responsive emergency water delivery.',
+    shortDescription: 'A dependable end suction configuration for reliable pressure and discharge performance in critical water-supply systems.',
+    longDescription: 'The end suction fire pump offers a compact, efficient configuration built for projects that demand consistent pressure support and easy service access without compromising reliability.',
+    gallery: [endSuctionPump, packagedFireFightingSystem, splitCasePump, containerizedFirePump],
+    tags: ['End Suction', 'High Pressure', 'Serviceable', 'Compact'],
+    standards: [
+      { title: 'NFPA 20', description: 'Aligned with pump and driver performance expectations for emergency fire protection water supply.' },
+      { title: 'Mechanical Dependability', description: 'Engineered to perform under repeated emergency duty cycles with minimal operational drift.' },
+      { title: 'Site Readiness', description: 'Supports practical installation and smooth alignment with system piping and control layouts.' }
+    ],
+    accessories: [
+      { name: 'Packaged Fire Fighting System', image: packagedFireFightingSystem, description: 'Integrated package for a complete water-distribution and control arrangement.' },
+      { name: 'Split Case Pump', image: splitCasePump, description: 'Alternative high-volume pumping configuration for larger system demand.' },
+      { name: 'Containerized Fire Pump', image: containerizedFirePump, description: 'Modular, durable configuration for elevated portability or limited-site constraints.' }
+    ]
+  },
+  {
+    id: 'split-case-fire-pump',
+    name: 'Split Case Fire Pump',
+    category: 'fire-pumps',
+    subCategory: 'split-case-pump',
+    image: splitCasePump,
+    description: 'A robust split case pump platform built for higher flow, resilient support, and long-term operational continuity.',
+    features: [
+      'High-flow characteristics suitable for larger facilities and higher-demand water systems.',
+      'Stable performance across long-duration emergency operation.',
+      'Designed for dependable mechanical service in critical applications.',
+      'Built to integrate smoothly with larger suppression control and water distribution strategies.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 20 Certified'],
+    series: 'Fire Pump Systems',
+    subtitle: 'High-capacity pump system for larger water-demand applications and demanding infrastructure.',
+    shortDescription: 'A robust split case pump platform built for higher flow, resilient support, and long-term operational continuity.',
+    longDescription: 'The split case fire pump supports more demanding water delivery needs with balanced hydraulic design, strong mechanical durability, and a system layout suited to complex fire protection installations.',
+    gallery: [splitCasePump, endSuctionPump, packagedFireFightingSystem, containerizedFirePump],
+    tags: ['High Flow', 'Industrial', 'Robust', 'Demanding'],
+    standards: [
+      { title: 'NFPA 20', description: 'Supports code-driven installation and operational expectations for essential fire service pumps.' },
+      { title: 'Hydraulic Continuity', description: 'Maintains stable pressure characteristics under elevated system demand and emergency drawdown.' },
+      { title: 'Mission Critical', description: 'Suited to facilities where dependable full-flow performance is essential to resilience.' }
+    ],
+    accessories: [
+      { name: 'End Suction Pump', image: endSuctionPump, description: 'Compact alternative for lower-to-medium hydraulic demand conditions.' },
+      { name: 'Containerized Fire Pump', image: containerizedFirePump, description: 'For modular or site-constrained emergency supply arrangements.' },
+      { name: 'Packaged Fire Fighting System', image: packagedFireFightingSystem, description: 'Complete integrated water supply package centred around efficiency and resilience.' }
+    ]
+  },
+  {
+    id: 'containerized-fire-pump',
+    name: 'Containerized Fire Pump',
+    category: 'fire-pumps',
+    subCategory: 'containerized-fire-pump',
+    image: containerizedFirePump,
+    description: 'A preassembled and transportable fire pump package offering practical deployment in demanding conditions.',
+    features: [
+      'Pre-integrated system reduces on-site installation time and coordination complexity.',
+      'Transport-friendly structure supports flexible project conditions and temporary installations.',
+      'Meets operational expectations for emergency pumping under strict site readiness demands.',
+      'Provides durable protection for projects requiring mobility and reliability.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 20 Certified'],
+    series: 'Fire Pump Systems',
+    subtitle: 'Portable, durable fire pump configuration for resilient deployment and reduced installation complexity.',
+    shortDescription: 'A preassembled and transportable fire pump package offering practical deployment in demanding conditions.',
+    longDescription: 'The containerized fire pump package is designed for sites requiring robust fire-water support with high portability, mechanical strength, and dependable installation simplicity.',
+    gallery: [containerizedFirePump, packagedFireFightingSystem, splitCasePump, endSuctionPump],
+    tags: ['Portable', 'Modular', 'Resilient', 'Deployment'],
+    standards: [
+      { title: 'NFPA 20', description: 'Developed around the core principles of fire pump reliability, duty support, and emergency readiness.' },
+      { title: 'Operational Flexibility', description: 'Supports variable site conditions with dependable emergency water delivery performance.' },
+      { title: 'Deployment Readiness', description: 'Designed to help contractors and facility operators mobilize protection quickly and efficiently.' }
+    ],
+    accessories: [
+      { name: 'Packaged Fire Fighting System', image: packagedFireFightingSystem, description: 'A turnkey emergency water system for integrated facilities and large infrastructures.' },
+      { name: 'End Suction Pump', image: endSuctionPump, description: 'A compact alternative that supports lower-to-mid volume operation needs.' },
+      { name: 'Split Case Pump', image: splitCasePump, description: 'A large-capacity option for high-demand fire-water applications.' }
+    ]
   }
 ];
 

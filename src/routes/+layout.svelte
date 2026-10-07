@@ -65,6 +65,7 @@
 		`}</script>
 	</svelte:head>
 
+<Navbar />
 {@render children()}
 
 <FloatingContacts />
