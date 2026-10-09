@@ -124,7 +124,7 @@
     <!-- Map & Details -->
     <aside class="space-y-6">
       <div class="overflow-hidden rounded-xl border-2 border-slate-100 shadow-lg">
-        <iframe class="w-full h-full min-h-[400px] rounded-xl" src="https://www.google.com/maps?q=ULTIMATE+FIRE+SOLUTIONS+LTD-+LEADING+FIRE+ALARM+SUPPLIER+IN+KENYA&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Ultimate Fire Solutions Office Location" class="w-full h-full min-h-[400px] rounded-xl" src="https://www.google.com/maps?q=ULTIMATE+FIRE+SOLUTIONS+LTD-+LEADING+FIRE+ALARM+SUPPLIER+IN+KENYA&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
       <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">

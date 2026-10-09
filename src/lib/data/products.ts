@@ -58,6 +58,7 @@ import fm200System2 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIR
 import fm200System from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM 200 Fire suppression system.png';
 import fm200HangingExtinguisher from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/FM200 10KG Automatic Hanging Fire Extingusher.png';
 import localFm200 from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/Local 6 kgs automatic fm 200.png';
+import fireExtinguishers from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/FM 200 FIRE SUPPRESSION SYSTEMS/Fire Extinguishers.png';
 
 import addrSignallingImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Addressable Signalling Devices/Addressable Signalling Devices.png';
 import apolloModulesImg from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Addressable Devices/Apollo Series Detectors/Addressable modules and interfaces for fire detection systems.webp';
@@ -113,7 +114,6 @@ export const categories = [
     route: '/products/fire-and-safety/fire-detection-systems',
     subcategories: [
       { id: 'control-panels', name: 'Control Panels' },
-      { id: 'addressable-devices', name: 'Addressable Devices' },
       { id: 'enea-series-detectors', name: 'Enea Series Detectors' },
       { id: 'apollo-series-detectors', name: 'Apollo Series Detectors' },
       { id: 'argus-series-detectors', name: 'Argus Series Detectors' },
@@ -143,9 +143,7 @@ export const categories = [
       { id: 'fm200-systems', name: 'FM 200 Fire Suppression System' },
       { id: 'local-6kg-fm200', name: 'Local 6kg FM200 System' },
       { id: 'industrial-installations', name: 'FM200 Industrial Installation' },
-      { id: 'fire-extinguishers', name: 'Fire Extinguishers' },
-      { id: 'extinguishing-control-panels', name: 'Extinguishing Control Panels' },
-      { id: 'suppression-modules', name: 'Suppression Modules & Valves' }
+      { id: 'fire-extinguishers', name: 'Fire Extinguishers' }
     ]
   },
   {
@@ -200,37 +198,6 @@ export const products: Product[] = [
       { name: 'FPMCPU-L', image: previdia216Cpu, description: 'High-performance core controller for critical system reliability.' },
       { name: 'FPMLEDPRN-L', image: previdia216LedPrn, description: 'Clear event display and printer interface for operational clarity.' },
       { name: 'FPMEXT-L', image: previdia216FpmExt, description: 'Prepared expansion path for additional networks and detection zones.' }
-    ]
-  },
-  {
-    id: 'previdia-micro-control-panel',
-    name: 'Previdia Micro Control Panel',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'control-panels',
-    image: previdiaMicro,
-    description: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
-    features: [
-      'Compact footprint for limited-space installations and retrofit projects.',
-      'Expandable I/O and network architecture for multi-zone configurations.',
-      'Clear operator interface with user-friendly event management.',
-      'Optimized for distributed detection and programmable alarm logic.'
-    ],
-    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
-    series: 'Previdia Series',
-    subtitle: 'Compact, flexible, and ideal for small to medium risk applications.',
-    shortDescription: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
-    longDescription: 'The Previdia Micro Control Panel delivers exceptional installation flexibility with smart modular expandability, efficient alarm processing, and a simplified user interface for cost-conscious building protection.',
-    gallery: [previdiaMicro, previdiaMicroExp, previdiaMicroLan, previdiaMicroDial],
-    tags: ['Addressable', 'Modular', 'EN 54', 'SILENT'],
-    standards: [
-      { title: 'NFPA 72', description: 'Compliant with national fire alarm and signaling requirements for occupancy protection and system integrity.' },
-      { title: 'EN 54', description: 'Certified for European fire detection and control system performance and safety expectations.' },
-      { title: 'UL / CSA Ready', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
-    ],
-    accessories: [
-      { name: 'M-EXP Module', image: previdiaMicroExp, description: 'Expandable module for extended input or output capability.' },
-      { name: 'C-COM LAN Module', image: previdiaMicroLan, description: 'High-speed communication module for local network connectivity.' },
-      { name: 'C-DIAL 4G Module', image: previdiaMicroDial, description: 'Cellular-ready communication pathway for resilient alarm transmission.' }
     ]
   },
   {
@@ -306,255 +273,62 @@ export const products: Product[] = [
     certifications: ['UL Listed', 'CE Marked']
   },
   {
-    id: 'enea-ed100-detector',
-    name: 'Enea ED100 Detector',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed100,
-    description: 'Enea analogue addressable detector ED100 for reliable smoke sensing in varied environments.',
-    features: ['Analogue detection', 'Remote sensitivity configuration'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'enea-ed200-detector',
-    name: 'Enea ED200 Detector',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed200,
-    description: 'Enea ED200 multi-criteria detector with advanced false-alarm rejection.',
-    features: ['Multi-criteria sensing', 'Low false alarm rate'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'enea-ed300-detector',
-    name: 'Enea ED300 Detector',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed300,
-    description: 'High-performance Enea ED300 detector for critical protection zones.',
-    features: ['High sensitivity', 'Remote programming'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'enea-manual-call-point',
-    name: 'Enea Manual Call Point',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: eneaCallPoint,
-    description: 'Flush or surface mount manual call point from the Enea series.',
-    features: ['Resettable', 'IP rated options'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'eb0010-mounting-base',
-    name: 'EB0010 Mounting Base',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-mounting-bases',
-    image: eb0010,
-    description: 'Mounting base for Enea detectors.',
-    features: ['Robust construction', 'Easy wiring'],
-    certifications: []
-  },
-  {
-    id: 'eb0020-mounting-base',
-    name: 'EB0020 Relay Mounting Base',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-mounting-bases',
-    image: eb0020,
-    description: 'Relay mounting base for detectors with alarm output.',
-    features: ['Relay output', 'Secure fit'],
-    certifications: []
-  },
-  {
-    id: 'eb0060-mounting-base',
-    name: 'EB0060 Mounting Base with Buzzer',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-mounting-bases',
-    image: eb0060,
-    description: 'Mounting base with integrated buzzer for local alerting.',
-    features: ['Integrated buzzer', 'Compact design'],
-    certifications: []
-  },
-  {
-    id: 'apollo-xp95-detector',
-    name: 'Apollo XP95 Detector',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'apollo-series-detectors',
-    image: apolloImg,
-    description: 'XP95 series analogue addressable detector for proven detection performance.',
-    features: ['Proven XP95 technology'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'argus-series-device',
-    name: 'Argus Series Device',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'argus-series-detectors',
-    image: argusImg,
-    description: 'Argus visual and audible signalling devices.',
-    features: ['Visual and audible options'],
-    certifications: []
-  },
-  {
-    id: 'es2000-sounder',
-    name: 'ES2000 Addressable Sounder',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-signalling-devices',
-    image: es2000,
-    description: 'Addressable signalling device for alarm notification.',
-    features: ['Addressable interface', 'High output'],
-    certifications: []
-  },
-  {
     id: 'smartline-control-panel',
     name: 'SmartLine Control Panel',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'conventional-control-panels',
     image: smartlineImg,
-    description: 'Conventional panel for straightforward detection solutions.',
-    features: ['Zone based', 'Easy commissioning'],
-    certifications: ['EN54']
-  }
-  ,
-  {
-    id: 'addressable-signalling-devices-collection',
-    name: 'Addressable Signalling Devices',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-signalling-devices',
-    image: addrSignallingImg,
-    description: 'Sounders and visual signalling devices for addressable systems.',
-    features: ['High output', 'Addressable interface'],
-    certifications: []
+    description: 'A zone-based conventional fire alarm control panel designed for straightforward detection solutions in commercial and industrial buildings.',
+    features: [
+      'Zone-based architecture for simplified circuit supervision and fault isolation.',
+      'Streamlined commissioning workflow for reduced installation time.',
+      'Clear operator interface with intuitive event and status management.',
+      'Robust design suited for dependable routine occupancy protection.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'SmartLine Series',
+    subtitle: 'Zone-based conventional control for straightforward, dependable building protection.',
+    shortDescription: 'A zone-based conventional fire alarm control panel designed for straightforward detection solutions in commercial and industrial buildings.',
+    longDescription: 'The SmartLine Control Panel delivers dependable zone-based conventional fire detection with simplified commissioning, clear operator feedback, and robust performance for routine commercial and industrial protection strategies.',
+    gallery: [smartlineImg],
+    tags: ['Conventional', 'Zone-based', 'Easy commissioning', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional alarm, supervisory, and fault behavior across occupied commercial buildings.' },
+      { title: 'EN 54', description: 'Compliant with European conventional fire detection and control system performance expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
-    id: 'apollo-modules-and-interfaces',
-    name: 'Apollo Modules & Interfaces',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'apollo-series-detectors',
-    image: apolloModulesImg,
-    description: 'Modules and interfaces supporting Apollo detector networks.',
-    features: ['Network interfaces', 'I/O modules'],
-    certifications: []
-  },
-  {
-    id: 'apollo-xp95-visual-audible',
-    name: 'Apollo XP95 Visual/Audible Devices',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'apollo-series-detectors',
-    image: apolloXp95VisualImg,
-    description: 'Visual and audible alarm devices from the XP95 family.',
-    features: ['Visual and audible options'],
-    certifications: []
-  },
-  {
-    id: 'apollo-addressable-call-points',
-    name: 'Apollo Addressable Call Points',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: apolloCallPointsImg,
-    description: 'Apollo-compatible addressable manual call points.',
-    features: ['Robust housing', 'Resettable options'],
-    certifications: []
-  },
-  {
-    id: 'apollo-mounting-bases-xp95',
-    name: 'XP95 Mounting Bases',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'apollo-series-detectors',
-    image: apolloMountingBasesImg,
-    description: 'Mounting bases and accessories for XP95 detectors.',
-    features: ['Secure fit', 'Multiple options'],
-    certifications: []
-  },
-  {
-    id: 'argus-visual-audible',
-    name: 'Argus Visual/Audible Devices',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'argus-series-detectors',
-    image: argusVisualAudibleImg,
-    description: 'Argus line visual and audible signalling devices.',
-    features: ['Indoor/outdoor options'],
-    certifications: []
-  },
-  {
-    id: 'argus-detector-bases',
-    name: 'Argus Detector Bases',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'argus-series-detectors',
-    image: argusBasesImg,
-    description: 'Detector bases and mounting accessories for the Argus range.',
-    features: ['Multiple base types'],
-    certifications: []
-  },
-  {
-    id: 'argus-modules',
-    name: 'Argus Series Modules',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'argus-series-detectors',
-    image: argusModulesImg,
-    description: 'Supporting modules for Argus signalling devices.',
-    features: ['Module interfaces', 'Accessory options'],
-    certifications: []
-  },
-  {
-    id: 'argus-altair-detectors',
-    name: 'Altair Multi-sensor Detectors',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'argus-series-detectors',
-    image: argusAltairImg,
-    description: 'Altair multi-sensor detectors offering smoke, heat sensing.',
-    features: ['Multi-criteria sensing', 'High reliability'],
-    certifications: []
-  },
-  {
-    id: 'argus-addressable-call-point-alcp',
-    name: 'ALCP100 / AI-CPW Call Points',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: alcpImg,
-    description: 'Addressable call points compatible with Argus family.',
-    features: ['Weatherproof options', 'Key reset'],
-    certifications: []
-  },
-  {
-    id: 'ec0020x-ec0030x-call-buttons',
-    name: 'EC0020x / EC0030x Colored Manual Buttons',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: ec0020xImg,
-    description: 'Colored manual buttons for special systems and indication.',
-    features: ['Colored options', 'Dedicated indication'],
-    certifications: []
-  },
-  {
-    id: 'ec0020-manual-call-point',
-    name: 'EC0020 Manual Call Point',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: ec0020Img,
-    description: 'Standard manual call point with visible activation and key reset.',
-    features: ['Visible activation', 'Easy reset'],
-    certifications: []
-  },
-  {
-    id: 'ec0012e-outdoor-manual-call-point',
-    name: 'EC0012E Outdoor Manual Call Point',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'addressable-call-points',
-    image: ec0012eImg,
-    description: 'Outdoor-rated manual call point with integrated micro module.',
-    features: ['IP rated', 'Integrated module'],
-    certifications: []
-  },
-  {
-    id: 'esb1000-bases',
-    name: 'ESB1000 / ISB1000 Bases',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-mounting-bases',
-    image: esb1000Img,
-    description: 'Base options for large detector families (ESB / ISB).',
-    features: ['Universal fit', 'Robust design'],
-    certifications: []
+    id: 'previdia-micro-control-panel',
+    name: 'Previdia Micro Control Panel',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'conventional-control-panels',
+    image: previdiaMicro,
+    description: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
+    features: [
+      'Compact footprint for limited-space installations and retrofit projects.',
+      'Expandable I/O and network architecture for multi-zone configurations.',
+      'Clear operator interface with user-friendly event management.',
+      'Optimized for distributed detection and programmable alarm logic.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Previdia Series',
+    subtitle: 'Compact, flexible, and ideal for small to medium risk applications.',
+    shortDescription: 'A compact addressable fire panel designed for scalable detection networks and quick deployment.',
+    longDescription: 'The Previdia Micro Control Panel delivers exceptional installation flexibility with smart modular expandability, efficient alarm processing, and a simplified user interface for cost-conscious building protection.',
+    gallery: [previdiaMicro, previdiaMicroExp, previdiaMicroLan, previdiaMicroDial],
+    tags: ['Addressable', 'Modular', 'EN 54', 'SILENT'],
+    standards: [
+      { title: 'NFPA 72', description: 'Compliant with national fire alarm and signaling requirements for occupancy protection and system integrity.' },
+      { title: 'EN 54', description: 'Certified for European fire detection and control system performance and safety expectations.' },
+      { title: 'UL / CSA Ready', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: [
+      { name: 'M-EXP Module', image: previdiaMicroExp, description: 'Expandable module for extended input or output capability.' },
+      { name: 'C-COM LAN Module', image: previdiaMicroLan, description: 'High-speed communication module for local network connectivity.' },
+      { name: 'C-DIAL 4G Module', image: previdiaMicroDial, description: 'Cellular-ready communication pathway for resilient alarm transmission.' }
+    ]
   },
   {
     id: 'emergency-lighting-showcase',
@@ -567,44 +341,31 @@ export const products: Product[] = [
     certifications: []
   },
   {
-    id: 'iris-manual-callpoints-collection',
-    name: 'Iris Series Manual Call Points',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'manual-call-points-iris-series',
-    image: irisManualCollectionImg,
-    description: 'Manual call points and accessories from the Iris series.',
-    features: ['Resettable', 'IP options'],
-    certifications: []
-  },
-  {
-    id: 'ick010-keyswitch',
-    name: 'ICK010 Keyswitch',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'manual-call-points-iris-series',
-    image: ick010Img,
-    description: 'Keyswitch accessory for manual call points and control functions.',
-    features: ['Secure access', 'Durable construction'],
-    certifications: []
-  },
-  {
-    id: 'icb010-non-latching-call-point',
-    name: 'ICB010 Non-latching Manual Call Point',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'manual-call-points-iris-series',
-    image: icb010Img,
-    description: 'Non-latching manual call point with automatic reset.',
-    features: ['Automatic reset', 'LED indication'],
-    certifications: []
-  },
-  {
     id: 'ic0020-resettable-call-point',
     name: 'IC0020 Resettable Manual Call Point',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'manual-call-points-iris-series',
     image: ic0020Img,
-    description: 'Resettable call point with LED visual indication.',
-    features: ['LED indication', 'Resettable'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant resettable manual call point featuring high-intensity LED visual indication for rapid alarm identification in conventional fire alarm systems.',
+    features: [
+      'Resettable operating element for repeated activation without replacement.',
+      'High-intensity LED visual indication for clear alarm identification.',
+      'Surface and flush mounting options for flexible installation layouts.',
+      'Designed for NFPA 72 compliant conventional manual initiating device circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Iris Series',
+    subtitle: 'Resettable conventional manual call point with LED visual indication.',
+    shortDescription: 'UL Listed and NFPA Compliant resettable manual call point featuring high-intensity LED visual indication.',
+    longDescription: 'The IC0020 Resettable Manual Call Point delivers dependable manual alarm initiation for conventional systems, combining resettable operation with high-intensity LED indication for clear identification in occupied spaces.',
+    gallery: [ic0020Img, irisManualCollectionImg],
+    tags: ['Resettable', 'LED Indication', 'Conventional', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional manual initiating device requirements for occupancy protection.' },
+      { title: 'EN 54', description: 'Compliant with European manual call point performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'ic0012e-quick-activation',
@@ -612,9 +373,26 @@ export const products: Product[] = [
     category: 'conventional-fire-alarm-systems',
     subCategory: 'manual-call-points-iris-series',
     image: ic0012e_convImg,
-    description: 'Quick-activation manual alarm button for fast response.',
-    features: ['Quick activation', 'Compact'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant quick-activation manual alarm button engineered for fast, reliable fire alarm initiation in conventional systems.',
+    features: [
+      'Quick-activation mechanism for immediate manual alarm initiation.',
+      'Compact footprint for discreet installation in occupied corridors.',
+      'High-contrast labelling for clear accessibility and identification.',
+      'Designed for NFPA 72 compliant conventional initiating device circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Iris Series',
+    subtitle: 'Quick-activation manual alarm button for fast emergency response.',
+    shortDescription: 'UL Listed and NFPA Compliant quick-activation manual alarm button engineered for fast fire alarm initiation.',
+    longDescription: 'The IC0012E Quick-Activation Manual Alarm Button provides rapid, dependable manual alarm initiation for conventional fire systems, with a compact design suited to corridors and occupied circulation spaces.',
+    gallery: [ic0012e_convImg, irisManualCollectionImg],
+    tags: ['Quick Activation', 'Compact', 'Conventional', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional manual initiating device requirements for occupancy protection.' },
+      { title: 'EN 54', description: 'Compliant with European manual call point performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'ic0012-ip67-outdoor',
@@ -622,9 +400,80 @@ export const products: Product[] = [
     category: 'conventional-fire-alarm-systems',
     subCategory: 'manual-call-points-iris-series',
     image: ic0012_convImg,
-    description: 'IP67-rated manual call point suitable for outdoor use.',
-    features: ['IP67 rated', 'Weatherproof'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant IP67-rated manual call point engineered for dependable outdoor and harsh-environment fire alarm initiation.',
+    features: [
+      'IP67-rated weatherproof enclosure for outdoor installation.',
+      'Resettable operating element with key access for controlled testing.',
+      'High-intensity LED alarm indication for outdoor visibility.',
+      'Designed for NFPA 72 compliant conventional initiating device circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Iris Series',
+    subtitle: 'IP67 weatherproof manual call point for outdoor and harsh environments.',
+    shortDescription: 'UL Listed and NFPA Compliant IP67-rated manual call point for dependable outdoor fire alarm initiation.',
+    longDescription: 'The IC0012 IP67 Manual Call Point provides reliable manual alarm initiation in outdoor and harsh environments, combining weatherproof construction with resettable operation and clear LED indication.',
+    gallery: [ic0012_convImg, irisManualCollectionImg],
+    tags: ['IP67', 'Weatherproof', 'Outdoor', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional manual initiating device requirements across outdoor installations.' },
+      { title: 'EN 54', description: 'Compliant with European manual call point performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
+  },
+  {
+    id: 'ick010-keyswitch',
+    name: 'ICK010 Keyswitch',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'manual-call-points-iris-series',
+    image: ick010Img,
+    description: 'UL Listed and NFPA Compliant keyswitch accessory providing secure access control for manual call point testing and system management functions.',
+    features: [
+      'Secure key-based access control for call point and system functions.',
+      'Durable construction for long service life in public areas.',
+      'Compatible with Iris series manual call point installations.',
+      'Designed for NFPA 72 compliant supervisory and access control schemes.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Iris Series',
+    subtitle: 'Secure keyswitch access control for manual call point management.',
+    shortDescription: 'UL Listed and NFPA Compliant keyswitch accessory for secure access control of manual call point functions.',
+    longDescription: 'The ICK010 Keyswitch provides secure, key-based access control for manual call point testing and system management, supporting authorized-only operation in NFPA-compliant conventional installations.',
+    gallery: [ick010Img],
+    tags: ['Keyswitch', 'Access Control', 'Secure', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant supervisory and access control requirements for conventional systems.' },
+      { title: 'EN 54', description: 'Compliant with European fire detection control and accessory expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
+  },
+  {
+    id: 'icb010-non-latching-call-point',
+    name: 'ICB010 Non-latching Manual Call Point',
+    category: 'conventional-fire-alarm-systems',
+    subCategory: 'manual-call-points-iris-series',
+    image: icb010Img,
+    description: 'UL Listed and NFPA Compliant non-latching manual call point with automatic reset and LED indication for dependable conventional alarm initiation.',
+    features: [
+      'Non-latching operation with automatic reset after activation.',
+      'Integrated LED indication for clear alarm status feedback.',
+      'Resettable design reduces maintenance and replacement cycles.',
+      'Designed for NFPA 72 compliant conventional initiating device circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Iris Series',
+    subtitle: 'Non-latching manual call point with automatic reset and LED indication.',
+    shortDescription: 'UL Listed and NFPA Compliant non-latching manual call point with automatic reset.',
+    longDescription: 'The ICB010 Non-latching Manual Call Point delivers dependable conventional alarm initiation with automatic reset and LED indication, reducing maintenance cycles while maintaining NFPA-compliant performance.',
+    gallery: [icb010Img, irisManualCollectionImg],
+    tags: ['Non-latching', 'Automatic Reset', 'LED Indication', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional manual initiating device requirements for occupancy protection.' },
+      { title: 'EN 54', description: 'Compliant with European manual call point performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'conv-detector-lineup',
@@ -683,23 +532,57 @@ export const products: Product[] = [
   },
   {
     id: 'is2021re-sounder',
-    name: 'IS2021RE Sounder',
+    name: 'IS2021RE Conventional Sounder',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'conventional-signalling-devices',
     image: is2021reImg,
-    description: 'High-performance conventional sounder IS2021RE.',
-    features: ['Loud output', 'Durable'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant high-performance conventional sounder delivering loud, dependable alarm notification across commercial and industrial facilities.',
+    features: [
+      'High-decibel output for reliable notification in large open spaces.',
+      'Selectable alarm tones for flexible notification schemes.',
+      'Durable enclosure for long service life in demanding environments.',
+      'Designed for NFPA 72 compliant conventional notification appliance circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Conventional Signalling',
+    subtitle: 'High-performance conventional sounder for dependable alarm notification.',
+    shortDescription: 'UL Listed and NFPA Compliant high-performance conventional sounder for reliable alarm notification.',
+    longDescription: 'The IS2021RE Conventional Sounder delivers loud, dependable alarm notification for conventional fire systems, with selectable tones and durable construction suited to commercial and industrial facilities.',
+    gallery: [is2021reImg, is2000Img],
+    tags: ['Sounder', 'High Output', 'Conventional', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional notification appliance performance and audibility requirements.' },
+      { title: 'EN 54', description: 'Compliant with European fire alarm sounder performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'is2000-sounder',
-    name: 'IS2000 Sounder',
+    name: 'IS2000 Conventional Sounder',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'conventional-signalling-devices',
     image: is2000Img,
-    description: 'Conventional signalling device IS2000.',
-    features: ['Wide coverage', 'Reliable performance'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant conventional signalling device providing wide-coverage, reliable alarm notification for zone-based fire detection systems.',
+    features: [
+      'Wide sound coverage for dependable notification across large zones.',
+      'Reliable performance under repeated emergency duty cycles.',
+      'Low current draw for efficient conventional circuit operation.',
+      'Designed for NFPA 72 compliant conventional notification appliance circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Conventional Signalling',
+    subtitle: 'Wide-coverage conventional sounder for zone-based notification.',
+    shortDescription: 'UL Listed and NFPA Compliant conventional signalling device with wide-coverage alarm notification.',
+    longDescription: 'The IS2000 Conventional Sounder provides wide-coverage, reliable alarm notification for zone-based conventional fire systems, with efficient operation and durable performance for routine commercial protection.',
+    gallery: [is2000Img, is2021reImg],
+    tags: ['Sounder', 'Wide Coverage', 'Conventional', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional notification appliance performance and audibility requirements.' },
+      { title: 'EN 54', description: 'Compliant with European fire alarm sounder performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'orbis-conventional-collection',
@@ -707,59 +590,26 @@ export const products: Product[] = [
     category: 'conventional-fire-alarm-systems',
     subCategory: 'apollo-series-conventional-detectors',
     image: apolloConv1Img,
-    description: 'Orbis family and marine-certified conventional devices.',
-    features: ['Marine-certified options'],
-    certifications: []
-  },
-  {
-    id: 'xp95-high-performance-detectors',
-    name: 'XP95 High-performance Detectors',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'apollo-series-detectors',
-    image: xp95HighImg,
-    description: 'High-performance XP95 analog addressable detectors for complete protection.',
-    features: ['Proven XP95 technology', 'High sensitivity'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'eb0010-eb0020-mounting-bases',
-    name: 'EB0010 / EB0020 Mounting Bases',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-mounting-bases',
-    image: eb0010andeb0020Img,
-    description: 'Combined image showing EB0010 and EB0020 mounting bases for detectors.',
-    features: ['Relay option', 'Standard fit'],
-    certifications: []
-  },
-  {
-    id: 'enea-ed100-detector-alt',
-    name: 'Enea ED100 Detector (alt)',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed100b,
-    description: 'Enea ED100 detector (alternate image).',
-    features: ['Analogue detection'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'enea-ed200-detector-alt',
-    name: 'Enea ED200 Detector (alt)',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed200b,
-    description: 'Enea ED200 detector (alternate image).',
-    features: ['Multi-criteria sensing'],
-    certifications: ['EN54']
-  },
-  {
-    id: 'enea-ed300-detector-alt',
-    name: 'Enea ED300 Detector (alt)',
-    category: 'addressable-fire-alarm-systems',
-    subCategory: 'enea-series-detectors',
-    image: ed300b,
-    description: 'Enea ED300 detector (alternate image).',
-    features: ['High sensitivity'],
-    certifications: ['EN54']
+    description: 'UL Listed and NFPA Compliant Orbis series conventional devices offering marine-certified options for dependable wide-area fire protection.',
+    features: [
+      'Marine-certified device options for demanding environments.',
+      'Proven conventional detection performance across commercial layouts.',
+      'Standardised mounting and wiring interfaces for simplified installation.',
+      'Designed for NFPA 72 compliant conventional detection circuits.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Orbis Series',
+    subtitle: 'Marine-certified conventional devices for dependable wide-area protection.',
+    shortDescription: 'UL Listed and NFPA Compliant Orbis series conventional devices with marine-certified options.',
+    longDescription: 'The Orbis Series Conventional Devices deliver dependable wide-area fire protection with marine-certified options, standardised interfaces, and NFPA-compliant performance across commercial and industrial layouts.',
+    gallery: [apolloConv1Img, apolloConv2Img],
+    tags: ['Orbis', 'Marine-certified', 'Conventional', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional detection and alarm behavior across occupied facilities.' },
+      { title: 'EN 54', description: 'Compliant with European conventional fire detection performance expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'iris-series-detector-showcase',
@@ -773,24 +623,31 @@ export const products: Product[] = [
   },
 
   {
-    id: 'orbis-collection-2',
-    name: 'Orbis Marine Fire Detection Collection',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'apollo-series-conventional-detectors',
-    image: apolloConv2Img,
-    description: 'Additional Orbis series imagery and modules.',
-    features: ['Marine-rated modules'],
-    certifications: []
-  },
-  {
     id: 'orbis-loop-modules',
     name: 'Orbis Loop Modules',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'apollo-series-conventional-detectors',
     image: apolloConv3Img,
-    description: 'Loop modules for Orbis conventional systems.',
-    features: ['Loop interface'],
-    certifications: []
+    description: 'UL Listed and NFPA Compliant loop interface modules for Orbis conventional systems enabling supervised signalling and ancillary equipment integration.',
+    features: [
+      'Loop interface for supervised conventional circuit integration.',
+      'Relay output options for ancillary equipment control.',
+      'Clear status diagnostics for efficient field servicing.',
+      'Designed for NFPA 72 compliant conventional system architectures.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Orbis Series',
+    subtitle: 'Loop interface modules for supervised conventional system integration.',
+    shortDescription: 'UL Listed and NFPA Compliant loop interface modules for Orbis conventional systems.',
+    longDescription: 'The Orbis Loop Modules provide supervised loop interface capability for conventional fire systems, enabling relay outputs and ancillary equipment integration within NFPA-compliant architectures.',
+    gallery: [apolloConv3Img],
+    tags: ['Loop Modules', 'Interface', 'Orbis', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional interface and supervised signalling requirements.' },
+      { title: 'EN 54', description: 'Compliant with European conventional fire system component expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: []
   },
   {
     id: 'orbis-conventional-call-points',
@@ -798,39 +655,26 @@ export const products: Product[] = [
     category: 'conventional-fire-alarm-systems',
     subCategory: 'apollo-series-conventional-detectors',
     image: apolloConv4Img,
-    description: 'Marine-certified conventional call points from Orbis series.',
-    features: ['Marine rating', 'Robust housing'],
-    certifications: []
-  },
-  {
-    id: 'iris-id100-optical-smoke-detector',
-    name: 'Iris ID100 Optical Smoke Detector',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'iris-series-detectors',
-    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Iris Series Detectors/ID 100.png',
-    description: 'High-precision conventional optical smoke detector equipped with advanced sensing chamber technology for rapid fire detection.',
+    description: 'UL Listed and NFPA Compliant marine-certified conventional call points from the Orbis series providing robust manual alarm initiation.',
     features: [
-      'Dual LED indicator for 360° visibility',
-      'Dust containment technology to prevent false alarms',
-      'Compatible with SmartLine conventional control panels',
-      'EN54-7 certified'
+      'Marine-rated construction for demanding environments.',
+      'Robust housing with high-visibility actuation element.',
+      'Resettable operation with clear LED indication.',
+      'Designed for NFPA 72 compliant conventional initiating device circuits.'
     ],
-    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
-  },
-  {
-    id: 'iris-id200-heat-detector',
-    name: 'Iris ID200 Rate-of-Rise Heat Detector',
-    category: 'conventional-fire-alarm-systems',
-    subCategory: 'iris-series-detectors',
-    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Iris Series Detectors/ID 200.png',
-    description: 'Conventional thermal detector designed for environments where smoke detectors are prone to false triggering.',
-    features: [
-      'Rate-of-rise and fixed temperature sensing options',
-      'Low ambient current consumption',
-      'Rugged polycarbonate housing',
-      'EN54-5 certified'
+    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified'],
+    series: 'Orbis Series',
+    subtitle: 'Marine-certified conventional call points for robust manual initiation.',
+    shortDescription: 'UL Listed and NFPA Compliant marine-certified conventional call points from the Orbis series.',
+    longDescription: 'The Orbis Conventional Call Points deliver robust manual alarm initiation with marine-rated construction, high-visibility actuation, and resettable operation for NFPA-compliant conventional systems.',
+    gallery: [apolloConv4Img],
+    tags: ['Call Points', 'Marine-rated', 'Orbis', 'NFPA 72'],
+    standards: [
+      { title: 'NFPA 72', description: 'Supports compliant conventional manual initiating device requirements for occupancy protection.' },
+      { title: 'EN 54', description: 'Compliant with European manual call point performance and safety expectations.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
     ],
-    certifications: ['UL Listed', 'NFPA Compliant', 'EN54 Certified']
+    accessories: []
   },
   {
     id: 'iris-manual-call-point-red',
@@ -935,6 +779,67 @@ export const products: Product[] = [
       { name: 'FM200 Industrial Installation', image: fm200Industrial, description: 'Broader system arrangement for more extensive protected areas.' },
       { name: 'FM200 Fire Suppression System', image: fm200System, description: 'General clean-agent arrangement suitable for larger protected spaces.' },
       { name: 'FM200 10KG Hanging Extinguisher', image: fm200HangingExtinguisher, description: 'A local, overhead-installed unit for rapid mission-critical coverage.' }
+    ]
+  },
+  {
+    id: 'fm200-industrial-installation',
+    name: 'FM200 Industrial Installation',
+    category: 'extinguishing-systems',
+    subCategory: 'industrial-installations',
+    image: fm200Industrial,
+    description: 'A large-scale clean-agent suppression configuration engineered for industrial facilities, critical infrastructure, and extensive protected asset environments.',
+    features: [
+      'Scalable clean-agent architecture for large-scale industrial protected zones.',
+      'Engineered for critical infrastructure and high-value asset environments.',
+      'Rapid extinguishing without damaging sensitive equipment or electronics.',
+      'Designed for NFPA 2001 compliant industrial suppression strategies.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 2001 Certified'],
+    series: 'Clean Agent Systems',
+    subtitle: 'Large-scale clean-agent suppression for industrial and critical infrastructure.',
+    shortDescription: 'A large-scale clean-agent suppression configuration engineered for industrial facilities and critical infrastructure.',
+    longDescription: 'The FM200 Industrial Installation provides dependable large-scale clean-agent suppression for industrial facilities and critical infrastructure, delivering rapid extinguishing with minimal residual damage and NFPA 2001 compliant performance.',
+    gallery: [fm200Industrial, fm200System, fm200System2, localFm200],
+    tags: ['Industrial', 'Clean Agent', 'Critical Infrastructure', 'NFPA 2001'],
+    standards: [
+      { title: 'NFPA 2001', description: 'Designed around the operational and safety standard for clean agent fire extinguishing systems.' },
+      { title: 'Industrial Protection', description: 'Supports dependable suppression across demanding industrial and high-value asset environments.' },
+      { title: 'Code-Conscious Design', description: 'Aligned with regulated commercial and critical infrastructure suppression planning requirements.' }
+    ],
+    accessories: [
+      { name: 'FM200 Fire Suppression System', image: fm200System, description: 'General clean-agent arrangement suitable for protected spaces.' },
+      { name: 'Local 6kg FM200 System', image: localFm200, description: 'Flexible small-format suppression package for precise room-level protection.' },
+      { name: 'Fire Extinguishers', image: fireExtinguishers, description: 'Portable extinguisher options for supplemental local protection coverage.' }
+    ]
+  },
+  {
+    id: 'fire-extinguishers',
+    name: 'Fire Extinguishers',
+    category: 'extinguishing-systems',
+    subCategory: 'fire-extinguishers',
+    image: fireExtinguishers,
+    description: 'A comprehensive range of portable and installed fire extinguishers providing dependable first-response suppression, inspection, and refill services.',
+    features: [
+      'Full range of extinguisher classes for diverse hazard applications.',
+      'Professional installation, inspection, and refill services.',
+      'Portable and wheeled configurations for flexible deployment.',
+      'Designed for NFPA 10 compliant portable extinguisher protection.'
+    ],
+    certifications: ['UL Listed', 'NFPA Compliant', 'NFPA 10 Certified'],
+    series: 'Portable Suppression',
+    subtitle: 'Complete extinguisher supply, installation, service, and refill solutions.',
+    shortDescription: 'A comprehensive range of portable and installed fire extinguishers with professional service and refill support.',
+    longDescription: 'Our Fire Extinguishers range delivers dependable first-response suppression across diverse hazard classifications, supported by professional installation, scheduled inspection, and compliant refill services in line with NFPA 10.',
+    gallery: [fireExtinguishers, fm200System, fm200HangingExtinguisher],
+    tags: ['Extinguishers', 'Installation', 'Refill', 'NFPA 10'],
+    standards: [
+      { title: 'NFPA 10', description: 'Compliant with the standard for portable fire extinguishers covering selection, placement, and maintenance.' },
+      { title: 'Service & Refill', description: 'Professional inspection, recharge, and refill programs keep extinguishers ready for emergency duty.' },
+      { title: 'UL Listed', description: 'Designed for international regulatory alignment across commercial and institutional environments.' }
+    ],
+    accessories: [
+      { name: 'FM200 Fire Suppression System', image: fm200System, description: 'Clean-agent arrangement for protected equipment and asset spaces.' },
+      { name: 'FM200 10KG Hanging Extinguisher', image: fm200HangingExtinguisher, description: 'Compact overhead-installed unit for targeted equipment protection.' }
     ]
   },
   // Fire Pumps
