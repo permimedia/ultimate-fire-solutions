@@ -1,5 +1,6 @@
 <script lang="ts">
 	// Svelte 5 runes usage
+	import { Menu, X, ChevronDown } from 'lucide-svelte';
 	import ufsLogo from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/UFS LOGO.png';
 	import { categories } from '$lib/data/products';
 
@@ -13,6 +14,11 @@
 		if (!mobileOpen) {
 			activeMobileCategory = null;
 		}
+	}
+
+	function closeMobile() {
+		mobileOpen = false;
+		activeMobileCategory = null;
 	}
 
 	function toggleMobileCategory(catId: string) {
@@ -43,56 +49,12 @@
 		}
 	}
 
-	@keyframes hamburgerToClose {
-		0% {
-			transform: rotate(0deg) translateY(0);
-		}
-		50% {
-			transform: rotate(22.5deg) translateY(6px);
-		}
-		100% {
-			transform: rotate(45deg) translateY(6px);
-		}
-	}
-
-	@keyframes closeToHamburger {
-		0% {
-			transform: rotate(45deg) translateY(6px);
-		}
-		50% {
-			transform: rotate(22.5deg) translateY(0);
-		}
-		100% {
-			transform: rotate(0deg) translateY(0);
-		}
-	}
-
 	.dropdown-panel {
 		animation: slideDown 200ms ease-out forwards;
 	}
 
-	.dropdown-panel.closing {
-		animation: slideUp 150ms ease-in forwards;
-	}
-
 	.mobile-panel {
 		animation: slideDown 250ms ease-out forwards;
-	}
-
-	.hamburger-line {
-		transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms ease;
-	}
-
-	.hamburger-open .hamburger-line:nth-child(1) {
-		transform: rotate(45deg) translateY(6px);
-	}
-
-	.hamburger-open .hamburger-line:nth-child(2) {
-		opacity: 0;
-	}
-
-	.hamburger-open .hamburger-line:nth-child(3) {
-		transform: rotate(-45deg) translateY(-6px);
 	}
 
 	.nav-link {
@@ -112,7 +74,6 @@
 	@media (prefers-reduced-motion: reduce) {
 		.dropdown-panel,
 		.mobile-panel,
-		.hamburger-line,
 		.nav-link,
 		.subcategory-link {
 			animation: none !important;
@@ -124,7 +85,7 @@
 <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-100/80">
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
 		<!-- Brand Logo -->
-		<a href="/" class="flex items-center gap-3 shrink-0" aria-label="Ultimate Fire Solutions Home">
+		<a href="/" class="flex items-center gap-3 shrink-0" aria-label="Ultimate Fire Solutions Home" onclick={closeMobile}>
 			<img src={ufsLogo} alt="Ultimate Fire Solutions" class="h-10 w-auto" />
 			<span class="hidden sm:block font-semibold text-[#0A2463] tracking-tight">Ultimate Fire Solutions</span>
 		</a>
@@ -135,7 +96,7 @@
 			<a href="/about" class="nav-link text-sm font-medium text-slate-700 hover:text-[#FF5A00]">About Us</a>
 
 			<!-- Products Mega Menu -->
-			<div class="relative group" onmouseleave={() => {}}>
+			<div class="relative group">
 				<button
 					aria-expanded="false"
 					aria-haspopup="true"
@@ -162,7 +123,7 @@
 												href={`/products/${cat.id}/${sub.id}`}
 												class="subcategory-link flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-[#FF5A00]/10 hover:text-[#FF5A00] hover:pl-4"
 											>
-												<svg class="h-3.5 w-3.5 text-slate-300 group-hover:text-[#FF5A00] transition-colors" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+												<svg class="h-3.5 w-3.5 text-slate-300 transition-colors" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 													<path d="M10.293 3.293a1 1 0 011.414 0l7 7a1 1 0 010 1.414l-7 7a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
 												</svg>
 												{sub.name}
@@ -183,102 +144,80 @@
 			</a>
 		</div>
 
-		<!-- Mobile Hamburger Button -->
+		<!-- Mobile Hamburger Button (Lucide Menu/X icons) -->
 		<button
 			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
 			aria-expanded={mobileOpen}
 			aria-controls="mobile-menu"
 			onclick={toggleMobile}
-			class="hamburger flex lg:hidden items-center justify-center h-10 w-10 rounded-lg bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2"
+			class="flex lg:hidden items-center justify-center h-10 w-10 rounded-lg bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5A00] focus-visible:ring-offset-2"
 		>
-			<span class="hamburger-line relative block h-0.5 w-5 bg-current" />
-			<span class="hamburger-line relative block h-0.5 w-5 bg-current mt-1.5" />
-			<span class="hamburger-line relative block h-0.5 w-5 bg-current mt-1.5" />
+			{#if mobileOpen}
+				<X class="h-6 w-6" />
+			{:else}
+				<Menu class="h-6 w-6" />
+			{/if}
 		</button>
 	</div>
 
-	<!-- Mobile Drawer Panel -->
-	<div id="mobile-menu" class="lg:hidden" role="navigation" aria-label="Mobile navigation">
-		<div class="mobile-panel fixed inset-0 z-50 bg-white/98 backdrop-blur-sm animate-slide-down md:hidden" style="animation: slideDown 250ms ease-out forwards;">
-			<div class="flex h-full flex-col">
-				<!-- Mobile Header -->
-				<div class="flex items-center justify-between border-b border-slate-100 px-4 py-3">
-					<a href="/" class="flex items-center gap-2" aria-label="Ultimate Fire Solutions Home">
-						<img src={ufsLogo} alt="Ultimate Fire Solutions" class="h-8 w-auto" />
-						<span class="font-semibold text-[#0A2463]">Ultimate Fire Solutions</span>
-					</a>
+	<!-- Mobile Drawer / Dropdown Panel -->
+	{#if mobileOpen}
+		<div id="mobile-menu" class="mobile-panel lg:hidden bg-white/95 backdrop-blur-md shadow-2xl rounded-b-2xl border-b border-gray-100 p-6" role="navigation" aria-label="Mobile navigation">
+			<nav class="space-y-1">
+				<a href="/" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]" onclick={closeMobile}>Home</a>
+				<a href="/about" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]" onclick={closeMobile}>About Us</a>
+
+				<!-- Mobile Products Accordion -->
+				<div class="border-t border-slate-100 pt-3">
 					<button
-						aria-label="Close menu"
-						onclick={toggleMobile}
-						class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100"
+						aria-expanded={activeMobileCategory === 'products'}
+						aria-controls="mobile-products-panel"
+						onclick={() => toggleMobileCategory('products')}
+						class="w-full flex items-center justify-between py-3 text-base font-semibold text-slate-700 hover:text-[#FF5A00]"
 					>
-						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-						</svg>
+						<span>Products</span>
+						<ChevronDown
+							class={`h-5 w-5 text-slate-500 transition-transform duration-200 ${activeMobileCategory === 'products' ? 'rotate-180' : ''}`}
+						/>
 					</button>
+
+					{#if activeMobileCategory === 'products'}
+						<div id="mobile-products-panel" class="mt-3 space-y-2" role="region" aria-label="Product categories">
+							{#each categories as cat}
+								<div class="rounded-lg bg-slate-50/50 p-3">
+									<h4 class="mb-2 text-sm font-bold uppercase tracking-wider text-[#0A2463]">{cat.name}</h4>
+									<ul class="space-y-1.5" role="list">
+										{#each cat.subcategories as sub}
+											<li>
+												<a
+													href={`/products/${cat.id}/${sub.id}`}
+													class="subcategory-link flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-[#FF5A00]/10 hover:text-[#FF5A00]"
+													onclick={closeMobile}
+												>
+													<svg class="h-3.5 w-3.5 text-slate-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+														<path d="M10.293 3.293a1 1 0 011.414 0l7 7a1 1 0 010 1.414l-7 7a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
+													</svg>
+													{sub.name}
+												</a>
+											</li>
+										{/each}
+									</ul>
+								</div>
+							{/each}
+						</div>
+					{/if}
 				</div>
 
-				<!-- Mobile Nav Links -->
-				<nav class="flex-1 overflow-y-auto px-4 py-4 space-y-1">
-					<a href="/" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]">Home</a>
-					<a href="/about" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]">About Us</a>
+				<a href="/services" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]" onclick={closeMobile}>Services</a>
+				<a href="/contact" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]" onclick={closeMobile}>Contact Us</a>
 
-					<!-- Mobile Products Accordion -->
-					<div class="border-t border-slate-100 pt-3">
-						<button
-							aria-expanded={activeMobileCategory === 'products'}
-							aria-controls="mobile-products-panel"
-							onclick={() => toggleMobileCategory('products')}
-							class="w-full flex items-center justify-between py-3 text-base font-semibold text-slate-700 hover:text-[#FF5A00]"
-						>
-							<span>Products</span>
-							<svg
-								class={`h-5 w-5 text-slate-500 transition-transform duration-200 ${activeMobileCategory === 'products' ? 'rotate-180' : ''}`}
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
-							</svg>
-						</button>
-
-						{#if activeMobileCategory === 'products'}
-							<div id="mobile-products-panel" class="mt-3 space-y-2 animate-slide-down" role="region" aria-label="Product categories">
-								{#each categories as cat}
-									<div class="rounded-lg bg-slate-50/50 p-3">
-										<h4 class="mb-2 text-sm font-bold uppercase tracking-wider text-[#0A2463]">{cat.name}</h4>
-										<ul class="space-y-1.5" role="list">
-											{#each cat.subcategories as sub}
-												<li>
-													<a
-														href={`/products/${cat.id}/${sub.id}`}
-														class="subcategory-link flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-[#FF5A00]/10 hover:text-[#FF5A00]"
-													>
-														<svg class="h-3.5 w-3.5 text-slate-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-															<path d="M10.293 3.293a1 1 0 011.414 0l7 7a1 1 0 010 1.414l-7 7a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
-														</svg>
-														{sub.name}
-													</a>
-												</li>
-											{/each}
-										</ul>
-									</div>
-								{/each}
-							</div>
-						{/if}
-					</div>
-
-					<a href="/services" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]">Services</a>
-					<a href="/contact" class="nav-link block py-3 text-base font-medium text-slate-700 hover:text-[#FF5A00]">Contact Us</a>
-
-					<!-- Mobile CTA -->
-					<div class="border-t border-slate-100 pt-4 mt-2">
-						<a href="/contact" class="block w-full rounded-lg bg-[#FF5A00] px-6 py-3.5 text-base font-bold text-center text-white shadow-[0_8px_20px_rgba(255,90,0,0.3)] transition-all hover:bg-orange-600 hover:shadow-[0_12px_28px_rgba(255,90,0,0.4)]">
-							Get a Quote
-						</a>
-					</div>
-				</nav>
-			</div>
+				<!-- Mobile CTA -->
+				<div class="border-t border-slate-100 pt-4 mt-2">
+					<a href="/contact" class="block w-full rounded-lg bg-[#FF5A00] px-6 py-3.5 text-base font-bold text-center text-white shadow-[0_8px_20px_rgba(255,90,0,0.3)] transition-all hover:bg-orange-600 hover:shadow-[0_12px_28px_rgba(255,90,0,0.4)]" onclick={closeMobile}>
+						Get a Quote
+					</a>
+				</div>
+			</nav>
 		</div>
-	</div>
+	{/if}
 </nav>
