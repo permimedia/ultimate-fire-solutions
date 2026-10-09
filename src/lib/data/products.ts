@@ -681,7 +681,7 @@ export const products: Product[] = [
     name: 'Iris Series Conventional Manual Call Point',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'manual-call-points-iris-series',
-    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Manual Call Points – Iris Series/Iris Series Manual Call Points Collection.png',
+    image: irisManualCollectionImg,
     description: 'Resettable conventional manual break-glass call point for immediate manual evacuation triggering.',
     features: [
       'Resettable operating element with key access',
@@ -695,7 +695,7 @@ export const products: Product[] = [
     name: 'Conventional Sounder Beacon',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'conventional-signalling-devices',
-    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Conventional Signalling Devices/IS2021RE.png',
+    image: is2021reImg,
     description: 'High-decibel audible and visual warning device for fast emergency notification across large facilities.',
     features: [
       'Multi-tone selectable alarm signals',
@@ -709,7 +709,7 @@ export const products: Product[] = [
     name: 'Apollo Series Conventional Optical Detector',
     category: 'conventional-fire-alarm-systems',
     subCategory: 'apollo-series-conventional-detectors',
-    image: '/src/lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/CONVENTIONAL CONTROL PANELS/Conventional Devices/Apollo Series Conventional Detectors/Orbis Marine Fire Detection Collection.png',
+    image: apolloConv2Img,
     description: 'Reliable conventional smoke detector engineered for wide-area protection in commercial buildings.',
     features: [
       'Wide operating voltage range (9-33V DC)',

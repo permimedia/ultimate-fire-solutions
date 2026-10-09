@@ -2,6 +2,11 @@
   import { ShieldCheck, CheckCircle2 } from 'lucide-svelte';
   let { data } = $props();
   let product = $derived(data.product);
+
+  function handleImgError(e: Event) {
+    const img = e.currentTarget as HTMLImageElement;
+    img.style.opacity = '0';
+  }
 </script>
 
 <svelte:head>
@@ -14,7 +19,7 @@
     <div class="grid grid-cols-1 items-center gap-12 rounded-3xl bg-white p-8 shadow-xl lg:grid-cols-2 lg:p-12">
       <div class="flex w-full items-center justify-center rounded-2xl p-8" style="background: radial-gradient(circle at 10% 10%, rgba(10,36,99,0.04), rgba(255,255,255,0));">
         <div class="w-full h-[450px] lg:h-[600px] flex items-center justify-center rounded-lg overflow-hidden">
-          <img src={product.image} alt={product.name} loading="lazy" decoding="async" class="object-contain w-full h-full max-h-[450px] lg:max-h-[600px] drop-shadow-2xl" />
+          <img src={product.image} alt={product.name} loading="lazy" decoding="async" onerror={handleImgError} class="object-contain w-full h-full max-h-[450px] lg:max-h-[600px] drop-shadow-2xl" />
         </div>
       </div>
       <div class="flex flex-col justify-center">

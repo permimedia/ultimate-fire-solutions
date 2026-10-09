@@ -3,6 +3,11 @@
   let category = $derived(data.category);
   let subCategory = $derived(data.subCategory);
   let products = $derived(data.products);
+
+  function handleImgError(e: Event) {
+    const img = e.currentTarget as HTMLImageElement;
+    img.style.opacity = '0';
+  }
 </script>
 
 <svelte:head>
@@ -28,7 +33,7 @@
         {#each products as product}
           <a href="/products/{category.id}/{subCategory.id}/{product.id}" class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-[#FF5A00] hover:shadow-xl">
             <div class="flex h-64 items-center justify-center bg-slate-100 p-6">
-              <img src={product.image} alt={product.name} class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              <img src={product.image} alt={product.name} onerror={handleImgError} class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
             </div>
             <div class="p-6">
               <div class="mb-2 flex gap-2">

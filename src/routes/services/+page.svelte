@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PenTool, Wrench, ClipboardCheck, Flame, ShieldCheck, ArrowRight, MessageCircle, Phone, FireExtinguisherIcon } from 'lucide-svelte';
+	import { PenTool, Wrench, ClipboardCheck, ShieldCheck, ArrowRight, MessageCircle, Phone, FireExtinguisherIcon } from 'lucide-svelte';
 
 	const services = [
 		{
