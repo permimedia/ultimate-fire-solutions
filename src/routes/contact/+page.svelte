@@ -142,7 +142,10 @@
             <Mail class="h-5 w-5 text-[#0A2463] mt-1" />
             <div>
               <div class="font-semibold">Email</div>
-              <a href="mailto:info@ultimatefiresolutions.com" class="text-slate-600">info@ultimatefiresolutions.com</a>
+              <div class="flex flex-col gap-1">
+                <a href="mailto:info@ultimatefiresolutions.com" class="text-slate-600 transition-colors hover:text-[#0A2463]">info@ultimatefiresolutions.com</a>
+                <a href="mailto:sales@ultimatefiresolutions.com" class="text-slate-600 transition-colors hover:text-[#0A2463]">sales@ultimatefiresolutions.com</a>
+              </div>
             </div>
           </li>
 

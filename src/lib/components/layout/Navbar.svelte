@@ -86,12 +86,12 @@
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
 		<!-- Brand Logo -->
 		<a href="/" class="flex items-center gap-3 shrink-0" aria-label="Ultimate Fire Solutions Home" onclick={closeMobile}>
-			<img src={ufsLogo} alt="Ultimate Fire Solutions" class="h-10 w-auto" />
-			<span class="hidden sm:block font-semibold text-[#0A2463] tracking-tight">Ultimate Fire Solutions</span>
+			<img src={ufsLogo} alt="Ultimate Fire Solutions" class="h-12 w-auto sm:h-14" />
+			<span class="hidden sm:block text-lg font-extrabold tracking-tight text-[#0A2463]">Ultimate Fire Solutions</span>
 		</a>
 
 		<!-- Desktop Navigation -->
-		<div class="hidden lg:flex lg:items-center lg:gap-6 lg:ml-8">
+		<div class="hidden lg:flex lg:items-center lg:gap-4 lg:ml-4">
 			<a href="/" class="nav-link text-sm font-medium text-slate-700 hover:text-[#FF5A00]">Home</a>
 			<a href="/about" class="nav-link text-sm font-medium text-slate-700 hover:text-[#FF5A00]">About Us</a>
 

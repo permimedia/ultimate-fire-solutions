@@ -1,6 +1,5 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 
 	import FloatingContacts from '$lib/components/FloatingContacts.svelte';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
@@ -15,8 +14,7 @@
 	const KEYWORDS = 'fire alarm suppliers in Kenya, fire alarm panels, fire suppression systems, fire detection systems, fire extinguishers, fire safety, UL listed, NFPA compliant';
 </script>
 
-<svelte:head>
-		<link rel="icon" href={favicon} />
+	<svelte:head>
 		<title>{SITE_TITLE}</title>
 		<meta name="description" content={SITE_DESCRIPTION} />
 		<meta name="keywords" content={KEYWORDS} />

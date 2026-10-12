@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Mail } from 'lucide-svelte';
 	import ufsLogo from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/UFS LOGO.png';
 	import previdiaPanel from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/Previdia Control Panels.png';
 	import { fireDetectionProducts } from '$lib/data/fire-detection-products';
@@ -105,7 +106,7 @@
 			<div class="grid gap-8 lg:grid-cols-2">
 				<div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
 					<p class="text-sm font-semibold uppercase tracking-[0.22rem] text-ufs-orange">Who we are</p>
-					<h3 class="mt-3 text-3xl font-black tracking-tight text-ufs-blue">Protecting people, property, and process.</h3>
+					<h3 class="mt-3 text-3xl font-black tracking-tight text-ufs-blue">Protecting Lives and Property</h3>
 					<p class="mt-5 text-base leading-8 text-slate-600">
 						Ultimate Fire Solutions delivers robust fire alarm, detection, and suppression strategies tailored to the demands of modern facilities, industrial infrastructure, and critical systems.
 					</p>
@@ -152,7 +153,16 @@
 					</div>
 					<div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
 						<p class="text-sm text-slate-200">Email us for specification support, product guidance, and site-ready fire protection solutions.</p>
-						<a href="mailto:sales@ultimatefiresolutions.com" class="mt-4 inline-block text-lg font-bold text-orange-300 hover:text-white">sales@ultimatefiresolutions.com</a>
+						<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+							<a href="mailto:info@ultimatefiresolutions.com" class="inline-flex items-center gap-2 text-lg font-bold text-orange-300 hover:text-white">
+								<Mail class="h-5 w-5 shrink-0" />
+								info@ultimatefiresolutions.com
+							</a>
+							<a href="mailto:sales@ultimatefiresolutions.com" class="inline-flex items-center gap-2 text-lg font-bold text-orange-300 hover:text-white">
+								<Mail class="h-5 w-5 shrink-0" />
+								sales@ultimatefiresolutions.com
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
