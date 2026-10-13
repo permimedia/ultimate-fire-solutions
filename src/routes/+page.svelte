@@ -14,12 +14,12 @@
 		<section class="mx-auto max-w-[90rem] px-6 py-18 md:px-8 lg:px-10">
 			<div class="grid items-center gap-12 py-16 lg:grid-cols-12">
 				<div class="space-y-8 lg:col-span-5">
-					<p class="text-sm font-semibold uppercase tracking-[0.28rem] text-ufs-orange">Ultimate Fire Solutions</p>
+					<p class="text-xs sm:text-sm md:text-base font-bold sm:font-extrabold uppercase tracking-[0.18rem] sm:tracking-[0.24rem] md:tracking-[0.28rem] text-ufs-orange transition-all duration-300">Ultimate Fire Solutions Limited</p>
 					<h1 class="text-5xl font-extrabold leading-tight tracking-tight text-ufs-blue md:text-6xl lg:text-7xl">
 						Engineering Your Safety with <span class="text-ufs-orange">Ultimate Precision</span>
 					</h1>
 					<p class="max-w-lg text-lg leading-relaxed text-slate-700">
-						Industry-leading fire protection engineering, rigorous NFPA-compliant installations, and advanced addressable alarm control systems.
+						Industry-leading fire protection engineering, UL listed and NFPA-compliant installations, and advanced addressable alarm control systems.
 					</p>
 					<div class="flex flex-wrap gap-4 pt-2">
 						<a href="#products" class="rounded-md bg-ufs-blue px-8 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-blue-900">Explore Products</a>

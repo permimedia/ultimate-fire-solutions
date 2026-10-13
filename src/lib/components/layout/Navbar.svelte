@@ -1,7 +1,6 @@
 <script lang="ts">
 	// Svelte 5 runes usage
 	import { Menu, X, ChevronDown } from 'lucide-svelte';
-	import ufsLogo from '$lib/assets/ULTIMATE FIRE SOLUTIONS PROJECT/UFS LOGO.png';
 	import { categories } from '$lib/data/products';
 
 	let { url = '' } = $props();
@@ -83,15 +82,18 @@
 </style>
 
 <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-100/80">
-	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
+	<div class="mx-auto flex max-w-7xl h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
 		<!-- Brand Logo -->
-		<a href="/" class="flex items-center gap-3 shrink-0" aria-label="Ultimate Fire Solutions Home" onclick={closeMobile}>
-			<img src={ufsLogo} alt="Ultimate Fire Solutions" class="h-12 w-auto sm:h-14" />
-			<span class="hidden sm:block text-lg font-extrabold tracking-tight text-[#0A2463]">Ultimate Fire Solutions</span>
+		<a href="/" class="group flex items-center gap-2 shrink-0 flex-shrink-0" aria-label="Ultimate Fire Solutions Home" onclick={closeMobile}>
+			<img src="/favicon.png" alt="Ultimate Fire Solutions" class="h-10 sm:h-14 lg:h-14 xl:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 flex-shrink-0" />
+			<span class="flex flex-col leading-tight flex-shrink-0 min-w-0">
+				<span class="text-xs xs:text-sm sm:text-2xl font-black tracking-tight text-slate-900 truncate">Ultimate Fire Solutions <span class="text-blue-600 font-black">Limited</span></span>
+				<span class="mt-1 text-[8px] sm:text-[11px] font-extrabold uppercase tracking-widest text-orange-600">PROTECTING LIVES AND PROPERTY</span>
+			</span>
 		</a>
 
-		<!-- Desktop Navigation -->
-		<div class="hidden lg:flex lg:items-center lg:gap-4 lg:ml-4">
+		<!-- Desktop Navigation (Centered) -->
+		<div class="hidden lg:flex lg:items-center lg:justify-center lg:gap-4 flex-1">
 			<a href="/" class="nav-link text-sm font-medium text-slate-700 hover:text-[#FF5A00]">Home</a>
 			<a href="/about" class="nav-link text-sm font-medium text-slate-700 hover:text-[#FF5A00]">About Us</a>
 
